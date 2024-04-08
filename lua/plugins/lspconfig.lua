@@ -77,7 +77,11 @@ return { -- LSP Configuration & Plugins
       svelte = {},
       jsonls = {},
       html = {},
-      tailwindcss = {},
+      tailwindcss = {
+        filestypes = {
+          '',
+        },
+      },
       cssls = {},
       cssmodules_ls = {},
       taplo = {},
