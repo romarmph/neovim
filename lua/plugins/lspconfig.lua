@@ -5,7 +5,6 @@ return { -- LSP Configuration & Plugins
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-    -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
     { 'j-hui/fidget.nvim', opts = {} },
     { 'folke/neodev.nvim', opts = {} },
   },
@@ -74,12 +73,22 @@ return { -- LSP Configuration & Plugins
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      -- tsserver = {},
+      tsserver = {},
+      svelte = {},
+      jsonls = {},
+      html = {},
+      tailwindcss = {},
+      cssls = {},
+      cssmodules_ls = {},
+      taplo = {},
+      yamlls = {},
+      sqlls = {},
+
       --
 
       lua_ls = {
         -- cmd = {...},
-        -- filetypes = { ...},
+        -- filetypes = { ...}.
         -- capabilities = {},
         settings = {
           Lua = {
@@ -113,9 +122,6 @@ return { -- LSP Configuration & Plugins
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for tsserver)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
           require('lspconfig')[server_name].setup(server)
         end,

@@ -2,7 +2,7 @@ return {
   'folke/tokyonight.nvim',
   priority = 1000, -- Make sure to load this before all the other start plugins.
   opts = {
-    style = 'night',
+    style = 'storm',
     transparent = true,
     styles = {
       sidebars = 'transparent',
@@ -17,6 +17,6 @@ return {
 
     -- You can configure highlights by doing something like:
     vim.cmd.hi 'Comment gui=none'
-    vim.cmd.hi 'VertSplit guibg=NONE guifg=#141414'
+    vim.cmd.hi 'VertSplit guibg=NONE guifg=NONE'
   end,
 }

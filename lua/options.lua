@@ -22,13 +22,4 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.api.nvim_set_hl(0, 'WinSeparator', { fg = 'cyan', bold = false })
-vim.opt.fillchars = {
-  horiz = '━',
-  horizup = '┻',
-  horizdown = '┳',
-  vert = '┃',
-  vertleft = '┫',
-  vertright = '┣',
-  verthoriz = '╋',
-}
+vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#ffffff', bold = false, blend = 0 })
