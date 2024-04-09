@@ -2,6 +2,9 @@ return {
   'folke/noice.nvim',
   event = 'VeryLazy',
   opts = {
+    cmdline = {
+      view = 'cmdline',
+    },
     lsp = {
       override = {
         ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
@@ -20,6 +23,13 @@ return {
           },
         },
         view = 'mini',
+      },
+      {
+        filter = {
+          event = 'notify',
+          find = 'No information available',
+        },
+        opts = { skip = true },
       },
     },
     presets = {
