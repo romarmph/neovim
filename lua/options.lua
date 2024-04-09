@@ -2,6 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
 vim.opt.clipboard = 'unnamedplus'
@@ -22,4 +23,5 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.laststatus = 2
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#ffffff', bold = false, blend = 0 })

@@ -1,6 +1,10 @@
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
+  dependencies = {
+    -- Add nvim-ts-autotag
+    { 'windwp/nvim-ts-autotag' },
+  },
   opts = {
     ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
     -- Autoinstall languages that are not installed
@@ -12,13 +16,19 @@ return { -- Highlight, edit, and navigate code
       --  the list of additional_vim_regex_highlighting and disabled languages for indent.
       additional_vim_regex_highlighting = { 'ruby' },
     },
-    indent = { enable = true, disable = { 'ruby' } },
+    matchup = {
+      enable = true,
+    },
+    dent = { enable = true, disable = { 'ruby' } },
   },
   config = function(_, opts)
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
     ---@diagnostic disable-next-line: missing-fields
     require('nvim-treesitter.configs').setup(opts)
+
+    -- Enable nvim-ts-autotag
+    require('nvim-ts-autotag').setup()
 
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:

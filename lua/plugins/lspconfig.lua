@@ -8,8 +8,14 @@ return { -- LSP Configuration & Plugins
     { 'j-hui/fidget.nvim', opts = {} },
     { 'folke/neodev.nvim', opts = {} },
   },
+  opts = {
+    lsp_doc_border = true,
+  },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
+      vim.diagnostic.config {
+        update_in_insert = true,
+      },
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
       callback = function(event)
         local map = function(keys, func, desc)
