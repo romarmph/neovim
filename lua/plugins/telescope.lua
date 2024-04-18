@@ -23,17 +23,28 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
+    local actions = require 'telescope.actions'
     require('telescope').setup {
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
         },
       },
+      pickers = {
+        buffers = {
+          mappings = {
+            i = {
+              ['<c-d>'] = actions.delete_buffer + actions.move_to_top,
+              ['<c-k>'] = actions.preview_scrolling_up,
+              ['<c-j>'] = actions.preview_scrolling_down,
+            },
+          },
+        },
+      },
     }
 
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
-
     local builtin = require 'telescope.builtin'
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
