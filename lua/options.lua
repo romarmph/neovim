@@ -25,3 +25,5 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.laststatus = 2
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#ffffff', bold = false, blend = 0 })
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
