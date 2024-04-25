@@ -9,11 +9,7 @@ return {
       floats = 'transparent',
     },
   },
-  on_highlights = function(hl, c)
-    hl.NeoTreeDirectoryName = {
-      fg = c.blue,
-    }
-  end,
+  on_highlights = function(hl, c) end,
   init = function()
     -- Load the colorscheme here.
     -- Like many other themes, this one has different styles, and you could load

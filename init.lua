@@ -1,6 +1,7 @@
 require 'keymaps'
 require 'options'
 require 'autocommands'
+require 'highlights'
 
 -- Lazy Nvim
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -37,7 +38,6 @@ require('lazy').setup({
   },
 })
 require 'lualine-config'
--- vim.cmd.colorscheme 'tokyonight-night'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
