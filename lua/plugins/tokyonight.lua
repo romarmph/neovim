@@ -19,5 +19,8 @@ return {
     -- You can configure highlights by doing something like:
     vim.cmd.hi 'Comment gui=none'
     vim.cmd.hi 'VertSplit guibg=NONE guifg=NONE'
+    vim.cmd.hi 'TelescopeBorder guifg=#2A3041'
+    vim.cmd.hi 'TelescopePromptBorder guifg=#2A3041'
+    vim.cmd.hi 'TelescopePromptTitle guifg=#2A3041'
   end,
 }
