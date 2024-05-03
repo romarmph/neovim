@@ -21,9 +21,9 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.laststatus = 2
-vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#ffffff', bold = false, blend = 0 })
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.opt.fillchars = { eob = ' ' }

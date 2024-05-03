@@ -9,7 +9,6 @@ return {
       floats = 'transparent',
     },
   },
-  on_highlights = function(hl, c) end,
   init = function()
     -- Load the colorscheme here.
     -- Like many other themes, this one has different styles, and you could load
@@ -22,5 +21,8 @@ return {
     vim.cmd.hi 'TelescopeBorder guifg=#2A3041'
     vim.cmd.hi 'TelescopePromptBorder guifg=#2A3041'
     vim.cmd.hi 'TelescopePromptTitle guifg=#2A3041'
+    vim.cmd.hi 'NeoTreeIndentMarker guifg=#2A3041'
+    vim.cmd.hi 'DiagnosticUnnecessary guifg=#8289B3'
+    vim.cmd.hi 'CursorLine guibg=#1f1836'
   end,
 }

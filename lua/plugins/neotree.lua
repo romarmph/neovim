@@ -30,6 +30,7 @@ return {
   },
   config = function()
     require('neo-tree').setup {
+
       close_if_last_window = true,
       popup_border_style = 'rounded',
       enable_git_status = true,
@@ -40,6 +41,8 @@ return {
         indent = {
           with_markers = true,
           with_expanders = false,
+          indent_marker = '│',
+          last_index_marker = '╰',
         },
         modified = {
           symbol = '',
@@ -47,7 +50,7 @@ return {
         },
         icon = {
           folder_closed = ' ',
-          folder_open = ' ',
+          folder_open = ' ',
           folder_empty = ' ',
           folder_empty_open = ' ',
         },
