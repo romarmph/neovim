@@ -4,14 +4,6 @@ return {
   cmd = 'Neotree',
   keys = {
     {
-      '<leader>fe',
-      function()
-        require('neo-tree.command').execute { toggle = true, dir = vim.uv.cwd() }
-      end,
-      desc = 'Explorer NeoTree (cwd)',
-    },
-    { '<leader>E', '<leader>fe', desc = 'Explorer NeoTree (cwd)', remap = true },
-    {
       '<leader>ge',
       function()
         require('neo-tree.command').execute { source = 'git_status', toggle = true }
@@ -73,6 +65,10 @@ return {
       window = {
         position = 'float',
         width = 35,
+        popup = { -- settings that apply to float position only
+          size = { width = '65', height = '70%' },
+          position = '50%', -- 50% means center it
+        },
       },
       filesystem = {
         use_libuv_file_watcher = true,
