@@ -37,7 +37,7 @@ require('lazy').setup({
     },
   },
 })
-require 'lualine-config'
+require 'lua/lualine/evil'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

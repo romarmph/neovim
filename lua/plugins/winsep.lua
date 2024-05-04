@@ -6,7 +6,7 @@ return {
     smooth = false,
     hi = {
       bg = 'NONE',
-      fg = '#2a4878',
+      fg = '#2b304a',
     },
     no_exec_files = { 'packer', 'TelescopePrompt', 'mason', 'CompetiTest', 'NvimTree', 'Neotree' },
   },
