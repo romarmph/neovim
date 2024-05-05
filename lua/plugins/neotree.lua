@@ -2,6 +2,11 @@ return {
   'nvim-neo-tree/neo-tree.nvim',
   branch = 'v3.x',
   cmd = 'Neotree',
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'MunifTanjim/nui.nvim',
+    'DaikyXendo/nvim-material-icon',
+  },
   keys = {
     {
       '<leader>ge',
@@ -22,7 +27,6 @@ return {
   },
   config = function()
     require('neo-tree').setup {
-
       close_if_last_window = true,
       popup_border_style = 'rounded',
       enable_git_status = true,
@@ -52,13 +56,13 @@ return {
             added = ' ',
             deleted = ' ',
             modified = ' ',
-            renamed = ' ',
+            renamed = '󰑕 ',
             -- Status type
-            untracked = '',
-            ignored = ' ',
-            unstaged = ' ',
-            staged = ' ',
-            conflict = '',
+            untracked = '󱓻 ',
+            ignored = '󰿠 ',
+            unstaged = '󰀧 ',
+            staged = ' ',
+            conflict = ' ',
           },
         },
       },
@@ -66,7 +70,7 @@ return {
         position = 'float',
         width = 35,
         popup = { -- settings that apply to float position only
-          size = { width = '65', height = '70%' },
+          size = { width = '65', height = '60%' },
           position = '50%', -- 50% means center it
         },
       },

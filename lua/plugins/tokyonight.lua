@@ -18,9 +18,9 @@ return {
     -- You can configure highlights by doing something like:
     vim.cmd.hi 'Comment gui=none'
     vim.cmd.hi 'VertSplit guibg=NONE guifg=NONE'
-    vim.cmd.hi 'TelescopeBorder guifg=#2A3041'
-    vim.cmd.hi 'TelescopePromptBorder guifg=#2A3041'
-    vim.cmd.hi 'TelescopePromptTitle guifg=#2A3041'
+    vim.cmd.hi 'TelescopeBorder guifg=#2b96fb'
+    vim.cmd.hi 'TelescopePromptBorder guifg=#2b96fb'
+    vim.cmd.hi 'TelescopePromptTitle guifg=#2b96fb'
     vim.cmd.hi 'NeoTreeIndentMarker guifg=#2A3041'
     vim.cmd.hi 'DiagnosticUnnecessary guifg=#8289B3'
     vim.cmd.hi 'CursorLine guibg=#1f1836'

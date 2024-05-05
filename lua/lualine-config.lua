@@ -6,17 +6,40 @@ local lualine = require 'lualine'
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-  bg       = '#13172e',
+  bg       = '#141724',
   fg       = '#bbc2cf',
-  yellow   = '#ECBE7B',
-  cyan     = '#008080',
+  yellow   = '#b89933',
+  cyan     = '#20a3c7',
   darkblue = '#081633',
-  green    = '#98be65',
+  green    = '#45deaf',
   orange   = '#FF8800',
   violet   = '#a9a1e1',
   magenta  = '#c678dd',
-  blue     = '#51afef',
+  blue     = '#2b96fb',
   red      = '#ec5f67',
+  segmentBg = '#090a1a',
+}
+local mode_color = {
+  n = colors.blue,
+  i = colors.green,
+  v = colors.cyan,
+  [''] = colors.cyan,
+  V = colors.cyan,
+  c = colors.magenta,
+  no = colors.blue,
+  s = colors.orange,
+  S = colors.orange,
+  [''] = colors.orange,
+  ic = colors.yellow,
+  R = colors.violet,
+  Rv = colors.violet,
+  cv = colors.red,
+  ce = colors.red,
+  r = colors.cyan,
+  rm = colors.cyan,
+  ['r?'] = colors.cyan,
+  ['!'] = colors.red,
+  t = colors.red,
 }
 
 local conditions = {
@@ -75,13 +98,13 @@ local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-ins_left {
-  function()
-    return '▊'
-  end,
-  color = { fg = colors.blue }, -- Sets highlighting of component
-  padding = { left = 0, right = 1 }, -- We don't need space before this
-}
+-- ins_left {
+--   function()
+--     return '▊'
+--   end,
+--   color = { fg = colors.blue, bg = mode_color[vim.fn.mode()] }, -- Sets highlighting of component
+--   padding = { left = 0, right = 1 }, -- We don't need space before this
+-- }
 
 ins_left {
   -- mode component
@@ -90,48 +113,36 @@ ins_left {
   end,
   color = function()
     -- auto change color according to neovims mode
-    local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
-      [''] = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      [''] = colors.orange,
-      ic = colors.yellow,
-      R = colors.violet,
-      Rv = colors.violet,
-      cv = colors.red,
-      ce = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ['r?'] = colors.cyan,
-      ['!'] = colors.red,
-      t = colors.red,
-    }
-    return { fg = mode_color[vim.fn.mode()] }
+    return { bg = mode_color[vim.fn.mode()], fg = '#ffffff' }
   end,
-  padding = { right = 1 },
+  padding = { left = 2 },
 }
 
 ins_left {
-  -- filesize component
-  'filesize',
-  cond = conditions.buffer_not_empty,
+  function()
+    return '██🭬'
+  end,
+  color = function()
+    return { fg = mode_color[vim.fn.mode()], bg = colors.segmentBg }
+  end,
+  padding = { left = 0, right = 0 },
 }
+
+-- ins_left {
+--   -- filesize component
+--   'filesize',
+--   cond = conditions.buffer_not_empty,
+-- }
 
 ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.blue },
+  color = { fg = colors.blue, bg = colors.segmentBg },
 }
 
-ins_left { 'location' }
+ins_left { 'location', color = { fg = colors.fg, bg = colors.segmentBg } }
 
-ins_left { 'progress', color = { fg = colors.fg } }
+ins_left { 'progress', color = { fg = colors.fg, bg = colors.segmentBg } }
 
 ins_left {
   'diagnostics',
@@ -142,14 +153,60 @@ ins_left {
     color_warn = { fg = colors.yellow },
     color_info = { fg = colors.cyan },
   },
+  color = { fg = colors.fg, bg = colors.segmentBg },
 }
 
+ins_left {
+  function()
+    return '██🭬'
+  end,
+  color = function()
+    return { fg = colors.segmentBg, bg = colors.bg }
+  end,
+  padding = { left = 0, right = 0 },
+}
+
+-- ins_left {
+--   function()
+--     return '🮥'
+--   end,
+--   color = function()
+--     return { fg = mode_color[vim.fn.mode()], bg = colors.segmentBg }
+--   end,
+--   padding = { left = 0, right = 0 },
+-- }
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
 ins_left {
   function()
     return '%='
   end,
+}
+
+ins_left {
+  function()
+    return 'Ginagawa mo? Mag code ka na!'
+  end,
+}
+
+-- ins_right {
+--   function()
+--     return '🮤'
+--   end,
+--   color = function()
+--     return { fg = mode_color[vim.fn.mode()], bg = colors.segmentBg }
+--   end,
+--   padding = { left = 0, right = 0 },
+-- }
+
+ins_right {
+  function()
+    return '🭮███'
+  end,
+  color = function()
+    return { fg = colors.segmentBg, bg = colors.bg }
+  end,
+  padding = { left = 0, right = 0 },
 }
 
 ins_right {
@@ -169,7 +226,7 @@ ins_right {
     end
     return msg
   end,
-  color = { fg = '#ffffff' },
+  color = { fg = colors.fg, bg = colors.segmentBg },
 }
 
 -- Add components to right sections
@@ -177,40 +234,43 @@ ins_right {
   'o:encoding', -- option component same as &encoding in viml
   fmt = string.upper, -- I'm not sure why it's upper case either ;)
   cond = conditions.hide_in_width,
-  color = { fg = colors.green },
+  color = { fg = colors.green, bg = colors.segmentBg },
 }
 
 ins_right {
   'fileformat',
   fmt = string.upper,
   icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-  color = { fg = colors.green },
+  color = { fg = colors.green, bg = colors.segmentBg },
 }
 
-ins_right {
-  'branch',
-  icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
-}
+-- ins_right {
+--   'branch',
+--   icon = '',
+--   color = { fg = colors.violet },
+-- }
 
 ins_right {
   'diff',
   -- Is it me or the symbol for modified us really weird
-  symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
+  symbols = { added = ' ', modified = ' ', removed = ' ' },
   diff_color = {
     added = { fg = colors.green },
     modified = { fg = colors.blue },
     removed = { fg = colors.red },
   },
   cond = conditions.hide_in_width,
+  color = { fg = colors.fg, bg = colors.segmentBg },
 }
 
 ins_right {
   function()
-    return '▊'
+    return '🭮███'
   end,
-  color = { fg = colors.blue },
-  padding = { left = 1 },
+  color = function()
+    return { fg = mode_color[vim.fn.mode()], bg = colors.segmentBg }
+  end,
+  padding = { left = 0, right = 0 },
 }
 
 -- Now don't forget to initialize lualine
