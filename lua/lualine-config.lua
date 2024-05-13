@@ -183,11 +183,11 @@ ins_left {
   end,
 }
 
-ins_left {
-  function()
-    return 'Ginagawa mo? Mag code ka na!'
-  end,
-}
+-- ins_left {
+--   function()
+--     return 'Ginagawa mo? Mag code ka na!'
+--   end,
+-- }
 
 -- ins_right {
 --   function()

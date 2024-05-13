@@ -59,7 +59,7 @@ return {
             renamed = '󰑕 ',
             -- Status type
             untracked = '󱓻 ',
-            ignored = '󰿠 ',
+            ignored = ' ',
             unstaged = '󰀧 ',
             staged = ' ',
             conflict = ' ',

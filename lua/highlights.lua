@@ -1,6 +1,6 @@
 local colors = {
   bg = '#141724',
-  fg = '#bbc2cf',
+  fg = '#7982a9',
   yellow = '#b89933',
   cyan = '#20a3c7',
   darkblue = '#081633',
@@ -14,8 +14,8 @@ local colors = {
 }
 
 vim.api.nvim_set_hl(0, 'NeoTreeDirectoryName', { fg = colors.fg })
-vim.api.nvim_set_hl(0, 'NeoTreeDirectoryIcon', { fg = colors.blue })
-vim.api.nvim_set_hl(0, 'NeoTreeFloatBorder', { fg = colors.blue })
+vim.api.nvim_set_hl(0, 'NeoTreeDirectoryIcon', { fg = colors.fg })
+vim.api.nvim_set_hl(0, 'NeoTreeFloatBorder', { fg = colors.fg })
 vim.api.nvim_set_hl(0, 'NeoTreeGitModified', { fg = colors.blue })
 vim.api.nvim_set_hl(0, 'NeoTreeGitRenamed', { fg = colors.cyan })
 vim.api.nvim_set_hl(0, 'NeoTreeGitDeleted', { fg = colors.red })
