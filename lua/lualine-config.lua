@@ -6,11 +6,11 @@ local lualine = require 'lualine'
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-  bg       = '#141724',
-  fg       = '#bbc2cf',
-  yellow   = '#b89933',
+  bg       = '#10131a',
+  fg       = '#737c8c',
+  yellow   = '#e0af68',
   cyan     = '#20a3c7',
-  darkblue = '#081633',
+  darkblue = '#0b3863',
   green    = '#45deaf',
   orange   = '#FF8800',
   violet   = '#a9a1e1',
@@ -19,6 +19,7 @@ local colors = {
   red      = '#ec5f67',
   segmentBg = '#090a1a',
 }
+
 local mode_color = {
   n = colors.blue,
   i = colors.green,
@@ -98,14 +99,6 @@ local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
--- ins_left {
---   function()
---     return '▊'
---   end,
---   color = { fg = colors.blue, bg = mode_color[vim.fn.mode()] }, -- Sets highlighting of component
---   padding = { left = 0, right = 1 }, -- We don't need space before this
--- }
-
 ins_left {
   -- mode component
   function()
@@ -113,68 +106,29 @@ ins_left {
   end,
   color = function()
     -- auto change color according to neovims mode
-    return { bg = mode_color[vim.fn.mode()], fg = '#ffffff' }
+    return { fg = mode_color[vim.fn.mode()], bg = colors.bg }
   end,
-  padding = { left = 2 },
+  padding = { left = 2, right = 2 },
 }
-
-ins_left {
-  function()
-    return '██🭬'
-  end,
-  color = function()
-    return { fg = mode_color[vim.fn.mode()], bg = colors.segmentBg }
-  end,
-  padding = { left = 0, right = 0 },
-}
-
--- ins_left {
---   -- filesize component
---   'filesize',
---   cond = conditions.buffer_not_empty,
--- }
 
 ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.blue, bg = colors.segmentBg },
+  color = { fg = colors.fg, bg = colors.bg },
 }
-
-ins_left { 'location', color = { fg = colors.fg, bg = colors.segmentBg } }
-
-ins_left { 'progress', color = { fg = colors.fg, bg = colors.segmentBg } }
 
 ins_left {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
   symbols = { error = ' ', warn = ' ', info = ' ' },
   diagnostics_color = {
-    color_error = { fg = colors.red },
-    color_warn = { fg = colors.yellow },
-    color_info = { fg = colors.cyan },
+    color_error = { fg = colors.yellow },
+    color_warn = { fg = colors.fg },
+    color_info = { fg = colors.fg },
   },
-  color = { fg = colors.fg, bg = colors.segmentBg },
+  color = { fg = colors.fg, bg = colors.bg },
 }
 
-ins_left {
-  function()
-    return '██🭬'
-  end,
-  color = function()
-    return { fg = colors.segmentBg, bg = colors.bg }
-  end,
-  padding = { left = 0, right = 0 },
-}
-
--- ins_left {
---   function()
---     return '🮥'
---   end,
---   color = function()
---     return { fg = mode_color[vim.fn.mode()], bg = colors.segmentBg }
---   end,
---   padding = { left = 0, right = 0 },
--- }
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
 ins_left {
@@ -183,38 +137,11 @@ ins_left {
   end,
 }
 
--- ins_left {
---   function()
---     return 'Ginagawa mo? Mag code ka na!'
---   end,
--- }
-
--- ins_right {
---   function()
---     return '🮤'
---   end,
---   color = function()
---     return { fg = mode_color[vim.fn.mode()], bg = colors.segmentBg }
---   end,
---   padding = { left = 0, right = 0 },
--- }
-
 ins_right {
-  function()
-    return '🭮███'
-  end,
-  color = function()
-    return { fg = colors.segmentBg, bg = colors.bg }
-  end,
-  padding = { left = 0, right = 0 },
-}
-
-ins_right {
-  -- Lsp server name .
   function()
     local msg = 'No Active Lsp'
-    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    local clients = vim.lsp.get_active_clients()
+    local buf_ft = vim.api.nvim_get_option_value('filetype', {})
+    local clients = vim.lsp.get_clients()
     if next(clients) == nil then
       return msg
     end
@@ -226,51 +153,22 @@ ins_right {
     end
     return msg
   end,
-  color = { fg = colors.fg, bg = colors.segmentBg },
+  color = { fg = colors.fg, bg = colors.bg },
 }
 
--- Add components to right sections
-ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  fmt = string.upper, -- I'm not sure why it's upper case either ;)
-  cond = conditions.hide_in_width,
-  color = { fg = colors.green, bg = colors.segmentBg },
-}
+ins_right { 'location', color = { fg = colors.fg, bg = colors.bg } }
 
-ins_right {
-  'fileformat',
-  fmt = string.upper,
-  icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-  color = { fg = colors.green, bg = colors.segmentBg },
-}
-
--- ins_right {
---   'branch',
---   icon = '',
---   color = { fg = colors.violet },
--- }
+ins_right { 'progress', color = { fg = colors.fg, bg = colors.bg } }
 
 ins_right {
   'diff',
-  -- Is it me or the symbol for modified us really weird
-  symbols = { added = ' ', modified = ' ', removed = ' ' },
+  symbols = { added = ' ', modified = '󰏬 ', removed = ' ' },
   diff_color = {
     added = { fg = colors.green },
     modified = { fg = colors.blue },
     removed = { fg = colors.red },
   },
-  cond = conditions.hide_in_width,
-  color = { fg = colors.fg, bg = colors.segmentBg },
-}
-
-ins_right {
-  function()
-    return '🭮███'
-  end,
-  color = function()
-    return { fg = mode_color[vim.fn.mode()], bg = colors.segmentBg }
-  end,
-  padding = { left = 0, right = 0 },
+  color = { fg = colors.fg, bg = colors.bg },
 }
 
 -- Now don't forget to initialize lualine
