@@ -17,13 +17,13 @@ return {
 
     -- You can configure highlights by doing something like:
     vim.cmd.hi 'Comment gui=none'
-    vim.cmd.hi 'VertSplit guibg=NONE guifg=NONE'
     vim.cmd.hi 'TelescopeBorder guifg=#1f2533'
     vim.cmd.hi 'TelescopePromptBorder guifg=#1f2533'
     vim.cmd.hi 'TelescopePromptTitle guifg=#7982a9'
     vim.cmd.hi 'TelescopeResultsTitle guifg=#7982a9'
-    vim.cmd.hi 'NeoTreeIndentMarker guifg=#10131a'
+    -- vim.cmd.hi 'NeoTreeIndentMarker guifg=#10131a'
     vim.cmd.hi 'DiagnosticUnnecessary guifg=#8289B3'
-    vim.cmd.hi 'CursorLine guibg=#10131a'
+    vim.cmd.hi 'CursorLine guibg=NONE'
+    vim.cmd.hi 'WinSeparator guifg=#363b4a'
   end,
 }

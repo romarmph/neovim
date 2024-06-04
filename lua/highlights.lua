@@ -22,12 +22,3 @@ vim.api.nvim_set_hl(0, 'NeoTreeGitDeleted', { fg = colors.red })
 vim.api.nvim_set_hl(0, 'NeoTreeGitAdded', { fg = colors.green })
 vim.api.nvim_set_hl(0, 'NeoTreeGitUntracked', { fg = colors.orange })
 vim.api.nvim_set_hl(0, 'NeoTreeGitUnstaged', { fg = colors.yellow })
---
--- vim.cmd [[
---     highlight! link NeoTreeGitUntracked NeoTreeDirectoryName
---     highlight! link NeoTreeGitUnstaged NeoTreeDirectoryName
---     highlight! link NeoTreeGitModified NeoTreeDirectoryName
---     highlight! link NeoTreeGitRenamed NeoTreeDirectoryName
---     highlight! link NeoTreeGitAdded NeoTreeDirectoryName
---     highlight! link NeoTreeGitDeleted NeoTreeDirectoryName
--- ]]
