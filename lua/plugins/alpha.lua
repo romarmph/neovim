@@ -1,6 +1,6 @@
 return {
   'goolord/alpha-nvim',
-  requires = { 'kyazdani42/nvim-web-devicons' },
+  requires = { 'DaikyXendo/nvim-material-icon' },
   config = function()
     local alpha = require 'alpha'
     local dashboard = require 'alpha.themes.dashboard'
