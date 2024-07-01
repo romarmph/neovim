@@ -31,9 +31,9 @@ return {
     dashboard.section.header.opts.hl = '@variable'
 
     dashboard.section.buttons.val = {
-      dashboard.button('<LD> e  ', '  File Explorer'),
-      dashboard.button('<LD> s f', '  Find File'),
-      dashboard.button('<LD> s g', '󰩉  Find Word'),
+      dashboard.button('Leader e ', '  File Explorer'),
+      dashboard.button('Leader sf', '  Find File'),
+      dashboard.button('Leader sg', '󰩉  Find Word'),
       dashboard.button('q', '󰅗  Quit', ':qa<cr>'),
     }
 

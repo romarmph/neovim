@@ -1,6 +1,7 @@
 local colors = {
   bg = '#141724',
   fg = '#7982a9',
+  fgDarker = '#4c5470',
   yellow = '#b89933',
   cyan = '#20a3c7',
   darkblue = '#081633',
@@ -22,3 +23,4 @@ vim.api.nvim_set_hl(0, 'NeoTreeGitDeleted', { fg = colors.red })
 vim.api.nvim_set_hl(0, 'NeoTreeGitAdded', { fg = colors.green })
 vim.api.nvim_set_hl(0, 'NeoTreeGitUntracked', { fg = colors.orange })
 vim.api.nvim_set_hl(0, 'NeoTreeGitUnstaged', { fg = colors.yellow })
+vim.api.nvim_set_hl(0, 'NeoTreeGitIgnored', { fg = colors.fgDarker })
