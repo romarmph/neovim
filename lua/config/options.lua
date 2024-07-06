@@ -6,7 +6,7 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
-vim.opt.showmode = true
+vim.opt.showmode = false
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.breakindent = true
 vim.opt.undofile = true
@@ -19,7 +19,7 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = false
 vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
-vim.opt.laststatus = 1
+vim.opt.laststatus = 3
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.fillchars =  { eob = ' ' }
