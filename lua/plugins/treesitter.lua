@@ -4,7 +4,7 @@ return {
    dependencies = {
     { 'windwp/nvim-ts-autotag' },
   },
-  config = function(_, opts)
+  config = function(_, _)
     require('nvim-treesitter.configs').setup  {
     ensure_installed = {
       'lua',
@@ -16,7 +16,6 @@ return {
     auto_install = true,
     highlight = {
       enable = true,
-      additional_vim_regex_highlighting = { 'ruby' },
     },
     indent = {
       enable = true,
@@ -24,7 +23,6 @@ return {
     matchup = {
       enable = true,
     },
-    dent = { enable = true, disable = { 'ruby' } },
   }
     require('nvim-ts-autotag').setup()
   end,
