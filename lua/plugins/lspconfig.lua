@@ -27,7 +27,6 @@ return {
         map('<leader>D', telescope.lsp_definitions, 'Type Definition')
         map('<leader>ds', telescope.lsp_document_symbols, 'Document Symbols')
         map('<leader>ws', telescope.lsp_dynamic_workspace_symbols, 'Workspace Symbols')
-        map('<leader>ca', vim.lsp.buf.code_action, 'Code Actions')
         vim.keymap.set({ 'n', 'v', }, '<leader>ca', vim.lsp.buf.code_action,
           { buffer = event.buf, desc = 'LSP: Code Actions' })
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
