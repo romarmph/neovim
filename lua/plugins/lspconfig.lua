@@ -4,7 +4,6 @@ return {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    { 'j-hui/fidget.nvim', opts = {} },
     { 'folke/neodev.nvim', opts = {} },
   },
   opts = {
@@ -28,7 +27,7 @@ return {
         map('<leader>D', telescope.lsp_definitions, 'Type Definition')
         map('<leader>ds', telescope.lsp_document_symbols, 'Document Symbols')
         map('<leader>ws', telescope.lsp_dynamic_workspace_symbols, 'Workspace Symbols')
-        map('<leader>rn', vim.lsp.buf.rename, 'Rename')
+        -- map('<leader>rn', vim.lsp.buf.rename, 'Rename')
         map('<leader>ca', vim.lsp.buf.code_action, 'Code Actions')
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
 

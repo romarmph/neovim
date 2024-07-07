@@ -1,6 +1,9 @@
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
+  dependencies = {
+    "MunifTanjim/nui.nvim",
+  },
   opts = {
     cmdline = {
       view = 'cmdline',
@@ -31,6 +34,13 @@ return {
         },
         opts = { skip = true },
       },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "search_count",
+        },
+        opts = { skip = true },
+      },
     },
     presets = {
       bottom_search = true,
@@ -40,13 +50,13 @@ return {
       lsp_doc_border = true,
     },
   },
-  dependencies = {
-    "MunifTanjim/nui.nvim",
+  keys = {
     {
-      "rcarriga/nvim-notify",
-      opts = {
-        timeout = 10000,
-      },
+      '<leader>un',
+      function()
+        require('noice').cmd 'dismiss'
+      end,
+      desc = 'Dismiss All',
     },
-  }
+  },
 }
