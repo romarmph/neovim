@@ -27,8 +27,9 @@ return {
         map('<leader>D', telescope.lsp_definitions, 'Type Definition')
         map('<leader>ds', telescope.lsp_document_symbols, 'Document Symbols')
         map('<leader>ws', telescope.lsp_dynamic_workspace_symbols, 'Workspace Symbols')
-        -- map('<leader>rn', vim.lsp.buf.rename, 'Rename')
         map('<leader>ca', vim.lsp.buf.code_action, 'Code Actions')
+        vim.keymap.set({ 'n', 'v', }, '<leader>ca', vim.lsp.buf.code_action,
+          { buffer = event.buf, desc = 'LSP: Code Actions' })
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
         map('gD', vim.lsp.buf.declaration, 'Go to Declaration')
@@ -74,7 +75,7 @@ return {
       },
     }
 
-   require("mason").setup()
+    require("mason").setup()
 
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
