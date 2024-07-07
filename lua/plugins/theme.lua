@@ -14,5 +14,6 @@ return {
       }
     }
     vim.cmd.colorscheme 'tokyonight'
+    require('plugins.theme.highlights')
   end,
 }
