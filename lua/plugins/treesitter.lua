@@ -1,29 +1,35 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-   dependencies = {
-    { 'windwp/nvim-ts-autotag' },
-  },
-  config = function(_, _)
-    require('nvim-treesitter.configs').setup  {
-    ensure_installed = {
-      'lua',
-      'css',
-      'fish',
-      'javascript',
-      'typescript',
-    },
-    auto_install = true,
-    highlight = {
-      enable = true,
-    },
-    indent = {
-      enable = true,
-    },
-    matchup = {
-      enable = true,
-    },
-  }
-    require('nvim-ts-autotag').setup()
+  config = function(_, opts)
+    ---@diagnostic disable-next-line: missing-fields
+    require('nvim-treesitter.configs').setup {
+      ensure_installed = {
+        'bash',
+        'json',
+        'jsonc',
+        'python',
+        'vim',
+        'vimdoc',
+        'yaml',
+        'toml',
+        'html',
+        'lua',
+        'css',
+        'fish',
+        'javascript',
+        'typescript',
+      },
+      auto_install = true,
+      highlight = {
+        enable = true,
+      },
+      indent = {
+        enable = true,
+      },
+      matchup = {
+        enable = true,
+      },
+    }
   end,
 }

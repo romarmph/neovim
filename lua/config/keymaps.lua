@@ -9,3 +9,4 @@ vim.keymap.set('n', '<A-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<F5>', '<cmd>LspRestart<CR>', { desc = 'Restart LSP' })
 vim.keymap.set({'n', 'i'}, '<C-CR>', '<End>');
 vim.keymap.set('n', '<C-Backspace>', '^');
+vim.keymap.set({'n', 'v'}, '<A-CR>', 'i<CR><Esc>');
