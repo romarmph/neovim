@@ -1,47 +1,9 @@
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
-local lualine = require 'lualine'
-
--- Color table for highlights
--- stylua: ignore
-local colors = {
-  -- bg       = '#10131a',
-  bg        = 'NONE',
-  fg        = '#737c8c',
-  yellow    = '#e0af68',
-  cyan      = '#20a3c7',
-  darkblue  = '#0b3863',
-  green     = '#45deaf',
-  orange    = '#FF8800',
-  violet    = '#a9a1e1',
-  magenta   = '#c678dd',
-  blue      = '#2b96fb',
-  red       = '#ec5f67',
-  segmentBg = '#090a1a',
-}
-
-local mode_color = {
-  n = colors.blue,
-  i = colors.green,
-  v = colors.cyan,
-  V = colors.cyan,
-  c = colors.magenta,
-  no = colors.blue,
-  s = colors.orange,
-  S = colors.orange,
-  [''] = colors.orange,
-  ic = colors.yellow,
-  R = colors.violet,
-  Rv = colors.violet,
-  cv = colors.red,
-  ce = colors.red,
-  r = colors.cyan,
-  rm = colors.cyan,
-  ['r?'] = colors.cyan,
-  ['!'] = colors.red,
-  t = colors.red,
-}
+local colors = require("utils.shallowCopy").shallowcopy(require("plugins.lualine.mode").color)
+colors.bg = 'NONE'
+print(colors)
 
 local conditions = {
   buffer_not_empty = function()
@@ -63,23 +25,20 @@ local config = {
     component_separators = '',
     section_separators = '',
     theme = {
-      normal = { c = { fg = colors.fg, bg = colors.bg } },
-      inactive = { c = { fg = colors.fg, bg = colors.bg } },
+      normal = { c = { fg = colors.fg, bg = 'NONE' } },
+      inactive = { c = { fg = colors.fg, bg = 'NONE' } },
     },
     globalstatus = true,
   },
   sections = {
-    -- these are to remove the defaults
     lualine_a = {},
     lualine_b = {},
     lualine_y = {},
     lualine_z = {},
-    -- These will be filled later
     lualine_c = {},
     lualine_x = {},
   },
   inactive_sections = {
-    -- these are to remove the defaults
     lualine_a = {},
     lualine_b = {},
     lualine_y = {},
@@ -102,7 +61,7 @@ ins_left {
     return require("plugins.lualine.mode").get_mode()
   end,
   color = function()
-    local color = mode_color[vim.fn.mode()]
+    local color = require("plugins.lualine.mode").color[vim.fn.mode()]
     if color == nil then
       return { fg = colors.fg, bg = colors.bg }
     end

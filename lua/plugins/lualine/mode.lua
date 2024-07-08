@@ -1,4 +1,27 @@
+local colors = require("plugins.theme.colors").colors
 local Mode = {}
+
+Mode.color = {
+  n = colors.blue,
+  i = colors.green,
+  v = colors.cyan,
+  V = colors.cyan,
+  c = colors.magenta,
+  no = colors.blue,
+  s = colors.orange,
+  S = colors.orange,
+  [''] = colors.orange,
+  ic = colors.yellow,
+  R = colors.violet,
+  Rv = colors.violet,
+  cv = colors.red,
+  ce = colors.red,
+  r = colors.cyan,
+  rm = colors.cyan,
+  ['r?'] = colors.cyan,
+  ['!'] = colors.red,
+  t = colors.red,
+}
 
 Mode.map = {
   ['n']     = 'NORMAL',

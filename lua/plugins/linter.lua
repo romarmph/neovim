@@ -1,5 +1,9 @@
 return {
   "nvimtools/none-ls.nvim",
+   dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
+  event = "VeryLazy",
   config = function()
     local null_ls = require("null-ls")
 
@@ -8,7 +12,7 @@ return {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.prettier,
 
-        null_ls.builtins.diagnostics.eslint_d,
+        require("none-ls.diagnostics.eslint_d"),
         null_ls.builtins.code_actions.refactoring
       }
     })
