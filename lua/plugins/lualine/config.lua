@@ -7,17 +7,17 @@ local lualine = require 'lualine'
 -- stylua: ignore
 local colors = {
   -- bg       = '#10131a',
-  bg       = 'NONE',
-  fg       = '#737c8c',
-  yellow   = '#e0af68',
-  cyan     = '#20a3c7',
-  darkblue = '#0b3863',
-  green    = '#45deaf',
-  orange   = '#FF8800',
-  violet   = '#a9a1e1',
-  magenta  = '#c678dd',
-  blue     = '#2b96fb',
-  red      = '#ec5f67',
+  bg        = 'NONE',
+  fg        = '#737c8c',
+  yellow    = '#e0af68',
+  cyan      = '#20a3c7',
+  darkblue  = '#0b3863',
+  green     = '#45deaf',
+  orange    = '#FF8800',
+  violet    = '#a9a1e1',
+  magenta   = '#c678dd',
+  blue      = '#2b96fb',
+  red       = '#ec5f67',
   segmentBg = '#090a1a',
 }
 
@@ -25,7 +25,6 @@ local mode_color = {
   n = colors.blue,
   i = colors.green,
   v = colors.cyan,
-  [''] = colors.cyan,
   V = colors.cyan,
   c = colors.magenta,
   no = colors.blue,
@@ -90,24 +89,24 @@ local config = {
   },
 }
 
--- Inserts a component in lualine_c at left section
 local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
 end
 
--- Inserts a component in lualine_x at right section
 local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
 ins_left {
-  -- mode component
   function()
-    return string.upper(vim.fn.mode())
+    return require("plugins.lualine.mode").get_mode()
   end,
   color = function()
-    -- auto change color according to neovims mode
-    return { fg = mode_color[vim.fn.mode()], bg = colors.bg }
+    local color = mode_color[vim.fn.mode()]
+    if color == nil then
+      return { fg = colors.fg, bg = colors.bg }
+    end
+    return { fg = color, bg = colors.bg }
   end,
   padding = { left = 2, right = 2 },
 }

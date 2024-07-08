@@ -13,11 +13,10 @@ return {
       }
     })
 
-
     vim.keymap.set('n', '<leader>fd', vim.lsp.buf.format, { desc = 'Format Document' })
     vim.api.nvim_create_autocmd('BufWritePost', {
       desc = 'Format on save',
-      group = vim.api.nvim_create_augroup('buf-write-post', { clear = true }),
+      group = vim.api.nvim_create_augroup('custom-format-on-save', { clear = true }),
       callback = function()
         vim.lsp.buf.format()
       end

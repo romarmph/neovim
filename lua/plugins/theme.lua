@@ -4,6 +4,7 @@ return {
   priority = 1000,
 
   config = function()
+---@diagnostic disable-next-line: missing-fields
     require('tokyonight').setup {
       style = 'moon',
       transparent = true,
