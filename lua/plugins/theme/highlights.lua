@@ -24,3 +24,4 @@ vim.api.nvim_set_hl(0, 'NeoTreeGitUntracked', { fg = colors.orange })
 vim.api.nvim_set_hl(0, 'NeoTreeGitUnstaged', { fg = colors.yellow })
 vim.api.nvim_set_hl(0, 'IblIndent', { fg = '#303548' })
 vim.api.nvim_set_hl(0, 'IblScope', { fg = '#303548' })
+
