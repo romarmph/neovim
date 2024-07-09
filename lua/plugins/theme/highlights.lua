@@ -14,3 +14,11 @@ vim.api.nvim_set_hl(0, 'NeoTreeGitUnstaged', { fg = colors.yellow })
 -- Indent Blank Line
 vim.api.nvim_set_hl(0, 'IblIndent', { fg = '#303548' })
 vim.api.nvim_set_hl(0, 'IblScope', { fg = '#303548' })
+
+vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#1d1d2b' })
+vim.api.nvim_set_hl(0, 'BufferLineSeparator', { bg = '#1d1d2b' })
+vim.api.nvim_set_hl(0, 'BufferLineSeparatorSelected', { bg = '#1d1d2b' })
+vim.api.nvim_set_hl(0, 'BufferLineSeparatorVisible', { bg = '#1d1d2b' })
+vim.api.nvim_set_hl(0, 'BufferLineSeparatorSelected', { bg = '#1d1d2b' })
+vim.api.nvim_set_hl(0, 'BufferLineSeparatorSelected', { bg = '#1d1d2b' })
+vim.api.nvim_set_hl(0, 'BufferLineIndicatorSelected', { bg = '#1d1d2b' })

@@ -11,6 +11,7 @@ function M.create_keymaps(event, telescope)
   map('<leader>D', telescope.lsp_definitions, 'Type Definition')
   map('<leader>ds', telescope.lsp_document_symbols, 'Document Symbols')
   map('<leader>ws', telescope.lsp_dynamic_workspace_symbols, 'Workspace Symbols')
+  map('<leader>rn', vim.lsp.buf.rename, 'Rename Symbol')
   vim.keymap.set({ 'n', 'v', }, '<leader>ca', vim.lsp.buf.code_action,
     { buffer = event.buf, desc = 'LSP: Code Actions' })
   map('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -19,4 +20,3 @@ function M.create_keymaps(event, telescope)
 end
 
 return M
-

@@ -1,14 +1,12 @@
 return {
   {
-    "smjonas/inc-rename.nvim",
-    config = function()
-      vim.keymap.set("n", "<leader>rn", function()
-        return ":IncRename " .. vim.fn.expand("<cword>")
-      end, { expr = true })
-    end,
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
   },
   {
     "ThePrimeagen/refactoring.nvim",
+    event = "BufReadPre",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -49,9 +47,11 @@ return {
   },
   {
     'github/copilot.vim',
+    event = "BufReadPre",
   },
   {
     'windwp/nvim-autopairs',
+    event = "BufReadPre",
     dependencies = { 'hrsh7th/nvim-cmp' },
     config = function()
       require('nvim-autopairs').setup {}
@@ -62,6 +62,7 @@ return {
   },
   {
     'windwp/nvim-ts-autotag',
+    event = "BufReadPre",
     ft = { 'html', 'svelte', 'markdown', 'react', 'javascript', 'typescript', 'typescriptreact', 'javascriptreact' },
     dependencies = 'nvim-treesitter/nvim-treesitter',
     config = function()
@@ -76,15 +77,20 @@ return {
   },
   {
     'mg979/vim-visual-multi',
+    event = "BufReadPre",
   },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
+    event = "BufReadPre",
     config = function()
       require("nvim-surround").setup({
         -- Configuration here, or leave empty to use defaults
       })
     end
+  },
+  {
+    "RRethy/vim-illuminate",
+    event = "BufReadPre",
   }
 }

@@ -1,9 +1,8 @@
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
-local colors = require("utils.shallowCopy").shallowcopy(require("plugins.lualine.mode").color)
+local colors = require("plugins.theme.colors").colors
 colors.bg = 'NONE'
-print(colors)
 
 local conditions = {
   buffer_not_empty = function()
@@ -88,8 +87,6 @@ ins_left {
   color = { fg = colors.fg, bg = colors.bg },
 }
 
--- Insert mid section. You can make any number of sections in neovim :)
--- for lualine it's any number greater then 2
 ins_left {
   function()
     return '%='
@@ -104,13 +101,7 @@ ins_right {
     if next(clients) == nil then
       return msg
     end
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
-      end
-    end
-    return msg
+    return clients[#clients - 1].name
   end,
   color = { fg = colors.fg, bg = colors.bg },
 }
@@ -121,7 +112,7 @@ ins_right { 'progress', color = { fg = colors.fg, bg = colors.bg } }
 
 ins_right {
   'diff',
-  symbols = { added = ' ', modified = '󰏬 ', removed = ' ' },
+  symbols = { added = ' ', modified = ' ', removed = ' ' },
   diff_color = {
     added = { fg = colors.green },
     modified = { fg = colors.blue },
@@ -129,5 +120,6 @@ ins_right {
   },
   color = { fg = colors.fg, bg = colors.bg },
 }
+
 
 return config;

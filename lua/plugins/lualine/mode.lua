@@ -23,7 +23,7 @@ Mode.color = {
   t = colors.red,
 }
 
-Mode.map = {
+local map = {
   ['n']     = 'NORMAL',
   ['no']    = 'O-PENDING',
   ['nov']   = 'O-PENDING',
@@ -65,10 +65,9 @@ Mode.map = {
 ---@return string current mode name
 function Mode.get_mode()
   local mode_code = vim.api.nvim_get_mode().mode
-  if Mode.map[mode_code] == nil then
+  if map[mode_code] == nil then
     return mode_code
   end
-  return Mode.map[mode_code]
+  return map[mode_code]
 end
-
 return Mode

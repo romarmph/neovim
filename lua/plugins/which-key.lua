@@ -12,6 +12,7 @@ return {
       ['<leader>w'] = { name = ' Workspace', _ = 'which_key_ignore' },
       ['<leader>f'] = { name = ' Format', _ = 'which_key_ignore' },
       ['<leader>u'] = { name = ' Dismissed Notifications', _ = 'which_key_ignore' },
+      ['<leader>b'] = { name = ' Buffer', _ = 'which_key_ignore' },
     }
   end,
 }
