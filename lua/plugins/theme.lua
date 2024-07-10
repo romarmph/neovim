@@ -4,9 +4,9 @@ return {
   priority = 1000,
 
   config = function()
----@diagnostic disable-next-line: missing-fields
+    ---@diagnostic disable-next-line: missing-fields
     require('tokyonight').setup {
-      style = 'moon',
+      style = 'night',
       transparent = true,
       terminal_colors = true,
       styles = {

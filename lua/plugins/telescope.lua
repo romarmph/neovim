@@ -13,7 +13,8 @@ return {
     { 'nvim-telescope/telescope-ui-select.nvim' },
   },
   config = function()
-    local actions  = require 'telescope.actions'
+    local actions = require 'telescope.actions'
+
     require('telescope').setup {
       extensions = {
         ['ui-select'] = {
@@ -22,16 +23,10 @@ return {
       },
       pickers = {
         buffers = {
-          mappings = {
-            i = {
-              ['<c-d>'] = actions.delete_buffer + actions.move_to_top,
-              ['<c-k>'] = actions.preview_scrolling_up,
-              ['<c-j>'] = actions.preview_scrolling_down,
-              ['<c-s>'] = actions.select_horizontal,
-              ['<c-v>'] = actions.select_vertical,
-            },
-          },
-        },
+          i = {
+            ['<C-d>'] = actions.delete_buffer + actions.move_to_top,
+          }
+        }
       },
     }
 
@@ -62,6 +57,5 @@ return {
         prompt_title = 'Live  Grep',
       }
     end, { desc = 'Search in Open Files' })
-
   end
 }
