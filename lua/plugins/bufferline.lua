@@ -16,15 +16,17 @@ return {
     bufferline.setup({
       options = {
         mode = 'buffers',
-        style_preset = bufferline.style_preset.minimal, -- or bufferline.style_preset.minimal,
+        style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
         themable = true,
         indicators = {
           style = 'none'
         },
         show_close_icon = false,
-        buffer_close_icon = '',
+        buffer_close_icon = '',
         diagnostics = 'nvim_lsp',
         always_show_bufferline = true,
+        left_trunc_marker = '',
+        right_trunc_marker = '',
         offsets = {
           {
             filetype = 'neo-tree',
@@ -32,6 +34,11 @@ return {
             highlight = 'Directory',
             text_align = 'left',
           },
+        },
+        hover = {
+          enabled = true,
+          delay = 200,
+          reveal = { 'close' }
         },
       },
     })

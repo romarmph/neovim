@@ -7,32 +7,47 @@ vim.cmd([[
   augroup END
 ]])
 
+local set_highlight = function(group, highlight)
+  vim.api.nvim_set_hl(0, group, highlight)
+end
+
+local set_multiple_highlights = function(group, highlights)
+  for _, name in ipairs(group) do
+    set_highlight(name, highlights)
+  end
+end
+
 -- NeoTree
-vim.api.nvim_set_hl(0, 'NeoTreeDirectoryName', { fg = colors.fg })
-vim.api.nvim_set_hl(0, 'NeoTreeDirectoryIcon', { fg = colors.fg })
-vim.api.nvim_set_hl(0, 'NeoTreeFloatBorder', { fg = colors.fg })
-vim.api.nvim_set_hl(0, 'NeoTreeGitModified', { fg = colors.blue })
-vim.api.nvim_set_hl(0, 'NeoTreeGitRenamed', { fg = colors.cyan })
-vim.api.nvim_set_hl(0, 'NeoTreeGitDeleted', { fg = colors.red })
-vim.api.nvim_set_hl(0, 'NeoTreeGitAdded', { fg = colors.green })
-vim.api.nvim_set_hl(0, 'NeoTreeGitUntracked', { fg = colors.orange })
-vim.api.nvim_set_hl(0, 'NeoTreeGitUnstaged', { fg = colors.yellow })
+set_highlight('NeoTreeDirectoryName', { fg = colors.fg })
+set_highlight('NeoTreeDirectoryIcon', { fg = colors.fg })
+set_highlight('NeoTreeFloatBorder', { fg = colors.fg })
+set_highlight('NeoTreeGitModified', { fg = colors.blue })
+set_highlight('NeoTreeGitRenamed', { fg = colors.cyan })
+set_highlight('NeoTreeGitDeleted', { fg = colors.red })
+set_highlight('NeoTreeGitAdded', { fg = colors.green })
+set_highlight('NeoTreeGitUntracked', { fg = colors.orange })
+set_highlight('NeoTreeGitUnstaged', { fg = colors.yellow })
 
 -- Indent Blank Line
-vim.api.nvim_set_hl(0, 'IblIndent', { fg = '#303548' })
-vim.api.nvim_set_hl(0, 'IblScope', { fg = '#303548' })
+set_multiple_highlights({ 'IblIndent', 'IblScope' }, { fg = '#303548' })
 
 -- Bufferline
-vim.api.nvim_set_hl(0, 'BufferLineSeparator', { bg = '#14141c', fg = '#14141c' })
-vim.api.nvim_set_hl(0, 'BufferLineGroupSeparator', { bg = '#14141c', fg = '#14141c' })
-vim.api.nvim_set_hl(0, 'BufferLineTabSeparatorSelected', { bg = '#14141c', fg = '#14141c' })
-vim.api.nvim_set_hl(0, 'BufferLineSeparatorSelected', { bg = '#14141c', fg = '#14141c' })
-vim.api.nvim_set_hl(0, 'BufferLineSeparatorVisible', { bg = '#14141c', fg = '#14141c' })
-vim.api.nvim_set_hl(0, 'BufferLineSeparatorSelected', { bg = '#14141c', fg = '#14141c' })
-vim.api.nvim_set_hl(0, 'BufferLineSeparatorSelected', { bg = '#14141c', fg = '#14141c' })
-vim.api.nvim_set_hl(0, 'BufferLineIndicatorSelected', { bg = '#14141c', fg = '#14141c' })
-vim.api.nvim_set_hl(0, 'BufferLineIndicatorVisible', { bg = '#14141c', fg = '#14141c' })
-vim.api.nvim_set_hl(0, 'BufferLineIndicatorVisible', { bg = '#14141c', fg = '#14141c' })
+set_multiple_highlights({
+  'BufferLineSeparator',
+  'BufferLineGroupSeparator',
+  'BufferLineTabSeparatorSelected',
+  'BufferLineSeparatorSelected',
+  'BufferLineSeparatorVisible',
+  'BufferLineIndicatorSelected',
+  'BufferLineIndicatorVisible',
+  '',
+}, { bg = '#14141c', fg = '#14141c' })
+
+set_multiple_highlights({ 'BufferLineCloseButtonSelected', 'BufferLineDevIconluaSelected' },
+  { bg = '#1b1b2e', fg = '#3d3d54' })
+
+set_multiple_highlights({ 'BufferLineDevIconluaInactive', 'BufferLineDevIconlua' }, { fg = '#3d3d54' })
+
 vim.api.nvim_set_hl(0, 'BufferLineBufferSelected', { bg = '#1b1b2e' })
 
 -- Telescope
@@ -50,4 +65,3 @@ vim.cmd.hi 'Comment gui=NONE'
 
 -- vim
 vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#1d1d2b' })
-
