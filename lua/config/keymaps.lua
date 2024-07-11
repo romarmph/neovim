@@ -1,4 +1,4 @@
-vim.keymap.set('i','jk', '<esc>');
+vim.keymap.set('i', 'jk', '<esc>');
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<Backspace>', 'ge')
@@ -7,6 +7,6 @@ vim.keymap.set('n', '<A-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<A-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<A-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.keymap.set('n', '<F5>', '<cmd>LspRestart<CR>', { desc = 'Restart LSP' })
-vim.keymap.set({'n', 'i'}, '<C-CR>', '<End>');
+vim.keymap.set({ 'n', 'i' }, '<C-CR>', '<End>');
 vim.keymap.set('n', '<C-Backspace>', '^');
-vim.keymap.set({'n', 'v'}, '<A-CR>', 'i<CR><Esc>');
+vim.keymap.set({ 'n', 'v' }, '<A-CR>', 'i<CR><Esc>');

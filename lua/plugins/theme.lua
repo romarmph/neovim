@@ -6,7 +6,7 @@ return {
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require('tokyonight').setup {
-      style = 'night',
+      style = 'storm',
       transparent = true,
       terminal_colors = true,
       styles = {

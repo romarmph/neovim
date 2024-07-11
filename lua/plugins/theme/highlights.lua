@@ -18,9 +18,11 @@ local set_multiple_highlights = function(group, highlights)
 end
 
 -- NeoTree
-set_highlight('NeoTreeDirectoryName', { fg = colors.fg })
-set_highlight('NeoTreeDirectoryIcon', { fg = colors.fg })
-set_highlight('NeoTreeFloatBorder', { fg = colors.fg })
+set_multiple_highlights({
+  'NeoTreeDirectoryName',
+  'NeoTreeDirectoryIcon',
+ 'NeoTreeFloatBorder',
+}, { fg = colors.fg })
 set_highlight('NeoTreeGitModified', { fg = colors.blue })
 set_highlight('NeoTreeGitRenamed', { fg = colors.cyan })
 set_highlight('NeoTreeGitDeleted', { fg = colors.red })
@@ -40,28 +42,30 @@ set_multiple_highlights({
   'BufferLineSeparatorVisible',
   'BufferLineIndicatorSelected',
   'BufferLineIndicatorVisible',
-  '',
-}, { bg = '#14141c', fg = '#14141c' })
-
+}, { bg = '#16161f', fg = '#16161f' })
 set_multiple_highlights({ 'BufferLineCloseButtonSelected', 'BufferLineDevIconluaSelected' },
-  { bg = '#1b1b2e', fg = '#3d3d54' })
-
+  { bg = '#16161f', fg = '#3d3d54' })
 set_multiple_highlights({ 'BufferLineDevIconluaInactive', 'BufferLineDevIconlua' }, { fg = '#3d3d54' })
-
-vim.api.nvim_set_hl(0, 'BufferLineBufferSelected', { bg = '#1b1b2e' })
+set_highlight('BufferLineBufferSelected', { bg = '#16161f' })
 
 -- Telescope
-vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = "#1f2533" })
-vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { fg = '#1f2533' })
-vim.api.nvim_set_hl(0, 'TelescopePromptTitle', { fg = '#7982a9' })
-vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { fg = '#7982a9' })
+set_highlight('TelescopeBorder', { fg = "#1f2533" })
+set_highlight('TelescopePromptBorder', { fg = '#1f2533' })
+set_highlight('TelescopePromptTitle', { fg = '#7982a9' })
+set_highlight('TelescopeResultsTitle', { fg = '#7982a9' })
 
 -- LSP
-vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', { fg = '#8289B3' })
+set_highlight('DiagnosticUnnecessary', { fg = '#8289B3' })
 
 
 -- Font
 vim.cmd.hi 'Comment gui=NONE'
-
 -- vim
-vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#1d1d2b' })
+set_highlight('CursorLine', { bg = '#1d1d2b' })
+
+-- Illuminate
+set_multiple_highlights({
+  'IlluminatedWordRead',
+  'IlluminatedWordWrite',
+  'IlluminatedWordText',
+}, { bg = '#2c2c4d' })
