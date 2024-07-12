@@ -1,12 +1,5 @@
 local colors = require("plugins.theme.colors").colors
 
-vim.cmd([[
-  augroup CursorLineTransparency
-    autocmd!
-    autocmd ColorScheme * highlight CursorLine guibg=#0f0f0f ctermbg=none
-  augroup END
-]])
-
 local set_highlight = function(group, highlight)
   vim.api.nvim_set_hl(0, group, highlight)
 end
@@ -21,7 +14,6 @@ end
 set_multiple_highlights({
   'NeoTreeDirectoryName',
   'NeoTreeDirectoryIcon',
- 'NeoTreeFloatBorder',
 }, { fg = colors.fg })
 set_highlight('NeoTreeGitModified', { fg = colors.blue })
 set_highlight('NeoTreeGitRenamed', { fg = colors.cyan })
@@ -29,39 +21,34 @@ set_highlight('NeoTreeGitDeleted', { fg = colors.red })
 set_highlight('NeoTreeGitAdded', { fg = colors.green })
 set_highlight('NeoTreeGitUntracked', { fg = colors.orange })
 set_highlight('NeoTreeGitUnstaged', { fg = colors.yellow })
+set_highlight('NeoTreeFloatBorder', { fg = colors.mute })
 
--- Indent Blank Line
-set_multiple_highlights({ 'IblIndent', 'IblScope' }, { fg = '#303548' })
+set_multiple_highlights({ 'IblIndent', 'IblScope' }, { fg = colors.mute })
 
--- Bufferline
+-- BufferLine
 set_multiple_highlights({
   'BufferLineSeparator',
-  'BufferLineGroupSeparator',
-  'BufferLineTabSeparatorSelected',
   'BufferLineSeparatorSelected',
   'BufferLineSeparatorVisible',
+  'BufferLineGroupSeparator',
+  'BufferLineTabSeparatorSelected',
+  'BufferLineTabSeparator',
   'BufferLineIndicatorSelected',
   'BufferLineIndicatorVisible',
-}, { bg = '#16161f', fg = '#16161f' })
-set_multiple_highlights({ 'BufferLineCloseButtonSelected', 'BufferLineDevIconluaSelected' },
-  { bg = '#16161f', fg = '#3d3d54' })
-set_multiple_highlights({ 'BufferLineDevIconluaInactive', 'BufferLineDevIconlua' }, { fg = '#3d3d54' })
-set_highlight('BufferLineBufferSelected', { bg = '#16161f' })
+}, { bg = colors.bg, fg = colors.bg })
+set_highlight('BufferLineBackground', { bg = colors.bg, fg = colors.fg_dark })
 
 -- Telescope
-set_highlight('TelescopeBorder', { fg = "#1f2533" })
-set_highlight('TelescopePromptBorder', { fg = '#1f2533' })
-set_highlight('TelescopePromptTitle', { fg = '#7982a9' })
-set_highlight('TelescopeResultsTitle', { fg = '#7982a9' })
+set_highlight('TelescopeBorder', { fg = colors.mute })
+set_highlight('TelescopePromptBorder', { fg = colors.mute })
+set_highlight('TelescopePromptTitle', { fg = colors.fg })
+set_highlight('TelescopeResultsTitle', { fg = colors.fg })
 
 -- LSP
-set_highlight('DiagnosticUnnecessary', { fg = '#8289B3' })
+set_highlight('DiagnosticUnnecessary', { fg = colors.fg })
 
-
--- Font
-vim.cmd.hi 'Comment gui=NONE'
 -- vim
-set_highlight('CursorLine', { bg = '#1d1d2b' })
+vim.cmd.hi 'Comment gui=NONE'
 
 -- Illuminate
 set_multiple_highlights({
@@ -69,3 +56,5 @@ set_multiple_highlights({
   'IlluminatedWordWrite',
   'IlluminatedWordText',
 }, { bg = '#2c2c4d' })
+
+set_highlight('WinSeparator', { fg = colors.mute })

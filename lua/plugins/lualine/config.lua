@@ -2,7 +2,6 @@
 -- Author: shadmansaleh
 -- Credit: glepnir
 local colors = require("plugins.theme.colors").colors
-colors.bg = 'NONE'
 
 local conditions = {
   buffer_not_empty = function()
@@ -24,8 +23,8 @@ local config = {
     component_separators = '',
     section_separators = '',
     theme = {
-      normal = { c = { fg = colors.fg, bg = 'NONE' } },
-      inactive = { c = { fg = colors.fg, bg = 'NONE' } },
+      normal = { c = { fg = colors.fg, bg = colors.bg } },
+      inactive = { c = { fg = colors.fg, bg = colors.bg } },
     },
     globalstatus = true,
   },

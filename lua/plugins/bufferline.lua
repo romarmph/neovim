@@ -1,6 +1,6 @@
 return {
   'akinsho/bufferline.nvim',
-  event = 'VeryLazy',
+  event = 'BufEnter',
   keys = {
     { '<leader>bp', '<Cmd>BufferLineTogglePin<CR>',            desc = 'Toggle Pin' },
     { '<leader>bP', '<Cmd>BufferLineGroupClose ungrouped<CR>', desc = 'Delete Non-Pinned Buffers' },
@@ -16,17 +16,11 @@ return {
     bufferline.setup({
       options = {
         mode = 'buffers',
-        style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
         themable = true,
+        separator_style = "thin",
         indicators = {
-          style = 'none'
+          style = 'underline'
         },
-        show_close_icon = false,
-        buffer_close_icon = '',
-        diagnostics = 'nvim_lsp',
-        always_show_bufferline = true,
-        left_trunc_marker = '',
-        right_trunc_marker = '',
         offsets = {
           {
             filetype = 'neo-tree',

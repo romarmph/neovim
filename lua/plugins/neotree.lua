@@ -13,12 +13,12 @@ return {
   },
   config = function()
     require("neo-tree").setup {
-      close_if_last_window = true,
       popup_border_style = 'rounded',
       enable_git_status = true,
       enable_modified_markers = true,
       enable_diagnostics = true,
       sort_case_insensitive = true,
+      hide_root_node = true,
       default_component_configs = {
         indent = {
           with_markers = true,

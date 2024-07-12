@@ -30,10 +30,10 @@ return {
         },
         window = {
           completion = cmp.config.window.bordered({
-            winhighlight = 'Normal:Normal,FloatBorder:TelescopeBorder,CursorLine:Visual,Search:None',
+            -- winhighlight = 'Normal:Normal,FloatBorder:TelescopeBorder,Search:None',
           }),
           documentation = cmp.config.window.bordered({
-            winhighlight = 'Normal:Normal,FloatBorder:TelescopeBorder,CursorLine:Visual,Search:None',
+            -- winhighlight = 'Normal:Normal,FloatBorder:TelescopeBorder,Search:None',
           }),
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
