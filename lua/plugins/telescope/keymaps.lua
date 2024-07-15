@@ -17,7 +17,8 @@ vim.keymap.set('n', '<leader>li', builtin.lsp_implementations, { desc = 'Impleme
 vim.keymap.set('n', '<leader>ld', builtin.lsp_definitions, { desc = 'Definitions' })
 vim.keymap.set('n', '<leader>lr', builtin.lsp_references, { desc = 'References' })
 
-vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Find Buffers' })
+vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "Find Buffers in tab" })
+vim.keymap.set('n', '<leader><leader>', '<cmd>Telescope scope buffers<CR>', { desc = 'Find Buffers' })
 
 vim.keymap.set('n', '<leader>/', function()
   builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
