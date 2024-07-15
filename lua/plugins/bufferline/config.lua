@@ -1,3 +1,4 @@
+local getRootDir = require("utils.getRootDir")
 local colors = require("plugins.theme.colors").colors
 local bufferline = require('bufferline')
 bufferline.setup({
@@ -20,8 +21,9 @@ bufferline.setup({
     offsets = {
       {
         filetype = "neo-tree",
-        text = "󰉋 Files",
+        text = "󰉋 " .. getRootDir(),
         text_align = "left",
+        highlight = "NeoTreeDirectoryName",
         separator = false,
       }
     },
