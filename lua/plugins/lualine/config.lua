@@ -69,6 +69,15 @@ ins_left {
 }
 
 ins_left {
+  function()
+    local reg = vim.fn.reg_recording()
+    if reg == "" then return "" end -- not recording
+    return "recording to " .. reg
+  end,
+  color = { fg = colors.fg, bg = colors.bg },
+}
+
+ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
   color = { fg = colors.fg, bg = colors.bg },
