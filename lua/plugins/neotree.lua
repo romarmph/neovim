@@ -1,15 +1,15 @@
 return {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      'DaikyXendo/nvim-material-icon',
-      "MunifTanjim/nui.nvim",
-      "3rd/image.nvim",
-    },
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    'DaikyXendo/nvim-material-icon',
+    "MunifTanjim/nui.nvim",
+    "3rd/image.nvim",
+  },
   keys = {
-    { '<leader>e', ':Neotree toggle float<CR>', silent = true, desc = 'Float File Explorer' },
-    { '<leader><tab>', ':Neotree toggle left<CR>', silent = true, desc = 'Left File Explorer' },
+    { '<leader>e',     ':Neotree toggle float<CR>', silent = true, desc = 'Float File Explorer' },
+    { '<leader><tab>', ':Neotree toggle right<CR>', silent = true, desc = 'Left File Explorer' },
   },
   config = function()
     require("neo-tree").setup {
@@ -74,6 +74,10 @@ return {
           },
         },
       },
-  }
+      source_selector = {
+        winbar = false,
+        statusline = false,
+      }
+    }
   end
 }

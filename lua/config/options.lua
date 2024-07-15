@@ -22,5 +22,9 @@ vim.opt.hlsearch = true
 vim.opt.laststatus = 3
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.opt.fillchars =  { eob = ' ' }
+vim.opt.fillchars = { eob = ' ' }
 vim.o.termguicolors = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.showtabline = 2
+vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
