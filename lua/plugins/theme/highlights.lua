@@ -25,19 +25,6 @@ set_highlight('NeoTreeFloatBorder', { fg = colors.mute })
 
 set_multiple_highlights({ 'IblIndent', 'IblScope' }, { fg = colors.mute })
 
--- BufferLine
-set_multiple_highlights({
-  'BufferLineSeparator',
-  'BufferLineSeparatorSelected',
-  'BufferLineSeparatorVisible',
-  'BufferLineGroupSeparator',
-  'BufferLineTabSeparatorSelected',
-  'BufferLineTabSeparator',
-  'BufferLineIndicatorSelected',
-  'BufferLineIndicatorVisible',
-}, { bg = colors.bg, fg = colors.bg })
-set_highlight('BufferLineBackground', { bg = colors.bg, fg = colors.fg_dark })
-
 -- Telescope
 set_highlight('TelescopeBorder', { fg = colors.mute })
 set_highlight('TelescopePromptBorder', { fg = colors.mute })
