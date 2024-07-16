@@ -21,6 +21,9 @@ return {
           require('telescope.themes').get_dropdown(),
         },
       },
+      defaults = {
+        layout_strategy = 'vertical',
+      },
       pickers = {
         buffers = {
           i = {

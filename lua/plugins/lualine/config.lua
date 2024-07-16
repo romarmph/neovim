@@ -109,12 +109,32 @@ ins_left {
 ins_right {
   function()
     local msg = 'No Active Lsp'
-    local buf_ft = vim.api.nvim_get_option_value('filetype', {})
-    local clients = vim.lsp.get_clients()
+    local clients = vim.lsp.get_clients({bufnr = 0})
     if next(clients) == nil then
       return msg
+    else
+      for _, client in ipairs(clients) do
+        local langID = client.get_language_id(0, vim.bo.filetype)
+        if client.name ~= 'GitHub Copilot' and langID ==  vim.bo.filetype then
+          return client.name
+        end
+      end
     end
-    return clients[#clients - 1].name
+    return msg
+  end,
+  color = { fg = colors.fg, bg = colors.bg },
+}
+
+ins_right {
+  function()
+    local msg = ' '
+    local clients = vim.lsp.get_clients({ name = "GitHub Copilot" })
+
+    if next(clients) ~= nil then
+      return ' '
+    end
+
+    return msg
   end,
   color = { fg = colors.fg, bg = colors.bg },
 }

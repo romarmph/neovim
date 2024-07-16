@@ -42,13 +42,12 @@ bufferline.setup({
       left = function()
         return {
           {
-            text = "  ",
+            text = " ",
             fg = colors.fg_dark,
           },
         }
       end,
     }
-
   },
   highlights = require("plugins.bufferline.highlights"),
 })

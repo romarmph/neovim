@@ -1,11 +1,14 @@
 return {
   'neovim/nvim-lspconfig',
-  event = "VeryLazy",
   dependencies = {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    { 'folke/neodev.nvim', opts = {} },
+    {
+      "folke/lazydev.nvim",
+      ft = "lua", -- only load on lua files
+      opts = {},
+    },
   },
   opts = {
     lsp_doc_border = true,

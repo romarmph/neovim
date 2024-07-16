@@ -44,7 +44,7 @@ return {
               local r, g, b = match:sub(2, 2), match:sub(3, 3), match:sub(4, 4)
               local hex_color = '#' .. r .. r .. g .. g .. b .. b
 
-              return MiniHipatterns.compute_hex_color_group(hex_color, 'bg')
+              return hi.compute_hex_color_group(hex_color, 'bg')
             end,
             extmark_opts = { priority = 2000 },
           },
@@ -54,7 +54,6 @@ return {
   },
   {
     'github/copilot.vim',
-    event = "InsertEnter",
   },
   {
     'windwp/nvim-autopairs',
