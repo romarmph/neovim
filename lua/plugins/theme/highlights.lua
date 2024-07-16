@@ -22,6 +22,8 @@ set_highlight('NeoTreeGitAdded', { fg = colors.green })
 set_highlight('NeoTreeGitUntracked', { fg = colors.orange })
 set_highlight('NeoTreeGitUnstaged', { fg = colors.yellow })
 set_highlight('NeoTreeFloatBorder', { fg = colors.mute })
+set_highlight('NeoTreeFloatTitle', { fg = colors.mute })
+
 
 set_multiple_highlights({ 'IblIndent', 'IblScope' }, { fg = colors.mute })
 

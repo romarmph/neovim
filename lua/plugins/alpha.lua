@@ -1,6 +1,8 @@
 return {
   'goolord/alpha-nvim',
-  requires = { 'DaikyXendo/nvim-material-icon' },
+  requires = {
+    'DaikyXendo/nvim-material-icon'
+  },
   config = function()
     local alpha = require 'alpha'
     local dashboard = require 'alpha.themes.dashboard'
@@ -30,10 +32,13 @@ return {
     dashboard.section.header.val = logo
     dashboard.section.header.opts.hl = '@variable'
 
+    local neotree = require("neo-tree")
+
+
     dashboard.section.buttons.val = {
-      dashboard.button('<LD> e  ', '  File Explorer'),
-      dashboard.button('<LD> s f', '  Find File'),
-      dashboard.button('<LD> s g', '󰩉  Find Word'),
+      dashboard.button('e', '  File Explorer', ':Neotree<CR>'),
+      dashboard.button('f', '  Find File', ':Telescope find_files<CR>'),
+      dashboard.button('w', '󰩉  Find Word', ':Telescope live_grep<CR>'),
       dashboard.button('q', '󰅗  Quit', ':qa<cr>'),
     }
 

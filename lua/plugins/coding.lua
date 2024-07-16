@@ -13,7 +13,7 @@ return {
   },
   {
     "ThePrimeagen/refactoring.nvim",
-    event = "BufReadPre",
+    event = "BufEnter",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -54,11 +54,11 @@ return {
   },
   {
     'github/copilot.vim',
-    event = "BufReadPre",
+    event = "InsertEnter",
   },
   {
     'windwp/nvim-autopairs',
-    event = "BufReadPre",
+    event = "InsertEnter",
     dependencies = { 'hrsh7th/nvim-cmp' },
     config = function()
       require('nvim-autopairs').setup {}
@@ -69,7 +69,7 @@ return {
   },
   {
     'windwp/nvim-ts-autotag',
-    event = "BufReadPre",
+    event = "InsertEnter",
     ft = { 'html', 'svelte', 'markdown', 'react', 'javascript', 'typescript', 'typescriptreact', 'javascriptreact' },
     dependencies = 'nvim-treesitter/nvim-treesitter',
     config = function()
@@ -84,12 +84,12 @@ return {
   },
   {
     'mg979/vim-visual-multi',
-    event = "BufReadPre",
+    event = "BufEnter",
   },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "BufReadPre",
+    event = "BufEnter",
     config = function()
       require("nvim-surround").setup({
         -- Configuration here, or leave empty to use defaults
@@ -98,6 +98,6 @@ return {
   },
   {
     "RRethy/vim-illuminate",
-    event = "BufReadPre",
+    event = "BufEnter",
   }
 }
