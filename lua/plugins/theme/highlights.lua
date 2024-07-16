@@ -48,3 +48,4 @@ set_multiple_highlights({
 }, { bg = '#2c2c4d' })
 
 set_highlight('WinSeparator', { fg = colors.mute })
+set_highlight('WhichKeyBorder', { fg = colors.mute })

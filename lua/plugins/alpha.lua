@@ -1,6 +1,6 @@
 return {
   'goolord/alpha-nvim',
-  requires = {
+  dependencies = {
     'DaikyXendo/nvim-material-icon'
   },
   config = function()
@@ -28,12 +28,8 @@ return {
       [[]],
       [[]],
     }
-
     dashboard.section.header.val = logo
     dashboard.section.header.opts.hl = '@variable'
-
-    local neotree = require("neo-tree")
-
 
     dashboard.section.buttons.val = {
       dashboard.button('e', '  File Explorer', ':Neotree<CR>'),

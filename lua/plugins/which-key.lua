@@ -1,8 +1,22 @@
 return {
   'folke/which-key.nvim',
   event = 'VeryLazy',
+  dependences = {},
   config = function()
-    require('which-key').setup()
+    require('which-key').setup({
+      preset = "modern",
+      plugins = {
+        presets = {
+          operators = true,
+          motions = true,
+          text_objects = true,
+        }
+      },
+      icons = {
+        rules = false,
+      }
+    })
+
 
     require('which-key').add({
       { "<leader>b",  group = " Buffer" },

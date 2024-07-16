@@ -1,5 +1,5 @@
 vim.keymap.set("n", "<leader>tm", ":ScopeMoveBuf ", { desc = "Move buffer to tab" })
 vim.keymap.set("n", "<leader>ta", "<cmd>tabnew<CR>", { desc = "New Tab page" })
-vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Next tab" })
-vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Previous tab" })
+vim.keymap.set("n", "]t", "<cmd>tabn<CR>", { desc = "Next tab" })
+vim.keymap.set("n", "[t", "<cmd>tabp<CR>", { desc = "Previous tab" })
 vim.keymap.set("n", "<leader>tC", "<cmd>tabc<CR>", { desc = "Close current tab" })

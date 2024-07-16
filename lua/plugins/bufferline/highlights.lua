@@ -25,7 +25,7 @@ return {
     bg = colors.bg,
   },
   trunc_marker = {
-    fg = colors.mute,
+    fg = colors.fg_dark,
     bg = colors.bg,
   }
 }
