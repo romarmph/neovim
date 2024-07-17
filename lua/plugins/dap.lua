@@ -10,9 +10,6 @@ return {
       "mxsdev/nvim-dap-vscode-js"
     },
     config = function()
-      -- require("dap").setup()
-      -- require("dapui").setup()
-
       require('mason-nvim-dap').setup {
         automatic_installation = true,
         handlers = {},

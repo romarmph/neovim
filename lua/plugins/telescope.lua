@@ -23,6 +23,17 @@ return {
       },
       defaults = {
         layout_strategy = 'vertical',
+        layout_config = {
+          vertical = {
+            width = 0.5,
+            height = 0.75,
+            preview_cutoff = 30,
+            prompt_position = 'bottom',
+          }
+        },
+        prompt_prefix = ' ',
+        selection_caret = ' ',
+        multi_icon = " "
       },
       pickers = {
         buffers = {

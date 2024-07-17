@@ -13,9 +13,6 @@ vim.keymap.set('n', '<leader>lw', builtin.lsp_workspace_symbols, { desc = 'Works
 vim.keymap.set('n', '<leader>lW', builtin.lsp_dynamic_workspace_symbols, { desc = 'Dynamic Workspace Symbols' })
 vim.keymap.set('n', '<leader>lt', builtin.lsp_type_definitions, { desc = 'Type Definitions' })
 vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, { desc = 'Document Symbols' })
-vim.keymap.set('n', '<leader>li', builtin.lsp_implementations, { desc = 'Implementations' })
-vim.keymap.set('n', '<leader>ld', builtin.lsp_definitions, { desc = 'Definitions' })
-vim.keymap.set('n', '<leader>lr', builtin.lsp_references, { desc = 'References' })
 
 vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "Find Buffers in tab" })
 vim.keymap.set('n', '<leader><leader>', '<cmd>Telescope scope buffers<CR>', { desc = 'Find Buffers' })
