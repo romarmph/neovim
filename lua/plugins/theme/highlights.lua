@@ -1,14 +1,7 @@
 local colors = require("plugins.theme.colors").colors
+local set_highlight = require("utils.highlights").set_highlight
+local set_multiple_highlights = require("utils.highlights").set_multiple_highlights
 
-local set_highlight = function(group, highlight)
-  vim.api.nvim_set_hl(0, group, highlight)
-end
-
-local set_multiple_highlights = function(group, highlights)
-  for _, name in ipairs(group) do
-    set_highlight(name, highlights)
-  end
-end
 
 -- NeoTree
 set_multiple_highlights({
@@ -38,7 +31,7 @@ set_highlight('DiagnosticUnnecessary', { fg = colors.fg })
 
 -- vim
 vim.cmd.hi 'Comment gui=NONE'
-set_highlight('CursorLine', { bg = "#1c1c2b"})
+set_highlight('CursorLine', { bg = "#1c1c2b" })
 
 -- Illuminate
 set_multiple_highlights({

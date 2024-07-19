@@ -20,6 +20,7 @@ return {
         'fish',
         'javascript',
         'typescript',
+        'svelte',
       },
       auto_install = true,
       highlight = {
