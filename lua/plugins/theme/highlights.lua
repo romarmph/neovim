@@ -38,7 +38,7 @@ set_highlight('DiagnosticUnnecessary', { fg = colors.fg })
 
 -- vim
 vim.cmd.hi 'Comment gui=NONE'
-set_highlight('CursorLine', { bg = "#1f1d33"})
+set_highlight('CursorLine', { bg = "#1c1c2b"})
 
 -- Illuminate
 set_multiple_highlights({
