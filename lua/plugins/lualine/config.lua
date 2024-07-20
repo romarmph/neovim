@@ -128,7 +128,7 @@ ins_right {
 ins_right {
   function()
     local msg = ' '
-    local clients = vim.lsp.get_clients({ name = "copilot" })
+    local clients = vim.lsp.get_clients({ name = "GitHub Copilot" })
 
     if next(clients) ~= nil then
       return ' '
