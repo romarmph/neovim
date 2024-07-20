@@ -53,9 +53,6 @@ return {
     end,
   },
   {
-    'github/copilot.vim',
-  },
-  {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     dependencies = { 'hrsh7th/nvim-cmp' },
