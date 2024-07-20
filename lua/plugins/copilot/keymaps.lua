@@ -5,6 +5,6 @@ vim.keymap.set(
   "<leader>cp",
   function()
     local actions = require("CopilotChat.actions")
-    require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+    require("CopilotChat.integrations.telescope").pick(actions.prompt_actions(), { previewer = false })
   end,
   { desc = "CopilotChat - Prompt actions" })
