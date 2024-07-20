@@ -10,3 +10,4 @@ vim.keymap.set('n', '<F5>', '<cmd>LspRestart<CR>', { desc = 'Restart LSP' })
 vim.keymap.set({ 'n', 'i' }, '<C-CR>', '<End>');
 vim.keymap.set('n', '<C-Backspace>', '^');
 vim.keymap.set({ 'n', 'v' }, '<A-CR>', 'i<CR><Esc>');
+vim.keymap.set({ 'n', 'v' }, '<leader>pp', '"_dP')

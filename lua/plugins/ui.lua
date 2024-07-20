@@ -5,7 +5,7 @@ return {
       require("fidget").setup({
         notification = {
           window = {
-            winblend = 0,
+            winblend = 100,
             relative = "editor",
           },
         }
@@ -20,12 +20,12 @@ return {
     event = 'BufReadPre',
     priority = 1200,
     config = function()
-      local colors = require('tokyonight.colors').setup()
+      local colors = require('plugins.theme.colors').colors
       require('incline').setup {
         highlight = {
           groups = {
-            InclineNormal = { guibg = colors.blue7, guifg = colors.fg },
-            InclineNormalNC = { guifg = colors.fg, guibg = colors.bg_dark },
+            InclineNormal = { guibg = colors.bg, guifg = colors.cyan },
+            InclineNormalNC = { guifg = colors.fg_dark, guibg = colors.bg },
           },
         },
         window = { margin = { vertical = 0, horizontal = 1 } },
@@ -35,7 +35,7 @@ return {
         render = function(props)
           local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
           if vim.bo[props.buf].modified then
-            filename = '[+] ' .. filename
+            filename = ' ' .. filename
           end
 
           local icon, color = require('nvim-web-devicons').get_icon_color(filename)
