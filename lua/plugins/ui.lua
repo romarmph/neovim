@@ -28,7 +28,7 @@ return {
             InclineNormalNC = { guifg = colors.fg_dark, guibg = colors.bg },
           },
         },
-        window = { margin = { vertical = 0, horizontal = 1 } },
+        window = { margin = { vertical = 1, horizontal = 1 } },
         hide = {
           cursorline = true,
         },
@@ -110,5 +110,11 @@ return {
         desc = 'Dismiss All',
       },
     },
+  },
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("plugins.neoscroll.keymaps")
+    end
   },
 }

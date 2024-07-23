@@ -1,7 +1,8 @@
 local M = {}
 
 M.colors = {
-  bg = '#13141E',
+  -- bg = '#13141E',
+  bg = 'NONE',
   fg = '#7982a9',
   fg_dark = "#353157",
   yellow = '#b89933',
