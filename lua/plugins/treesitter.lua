@@ -1,0 +1,38 @@
+return {
+   {
+    "nvim-treesitter/nvim-treesitter",
+    event = "VeryLazy",
+    build = ":TSUpdate",
+    config = function(_)
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = {
+          'bash',
+          'json',
+          'jsonc',
+          'python',
+          'vim',
+          'vimdoc',
+          'yaml',
+          'toml',
+          'html',
+          'lua',
+          'css',
+          'fish',
+          'javascript',
+          'typescript',
+          'svelte',
+        },
+        auto_install = true,
+        highlight = {
+          enable = true,
+        },
+        indent = {
+          enable = true,
+        },
+        matchup = {
+          enable = true,
+        },
+    }
+    end,
+  },
+}
