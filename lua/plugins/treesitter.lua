@@ -3,13 +3,13 @@ return {
     "nvim-treesitter/nvim-treesitter",
     event = "VeryLazy",
     build = ":TSUpdate",
-    config = function(_, opts)
+    config = function(_)
       require("plugins.treesitter.config")
     end,
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    config = function ()
+    config = function()
       require("nvim-treesitter.configs").setup({
         textobjects = {
           select = {

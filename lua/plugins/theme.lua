@@ -6,6 +6,5 @@ return {
     require("plugins.theme.config")
     vim.cmd.colorscheme 'tokyonight'
     require('plugins.theme.highlights')
-
   end,
 }
