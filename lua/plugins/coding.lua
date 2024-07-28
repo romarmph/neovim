@@ -37,4 +37,55 @@ return {
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end
   },
+   {
+    "ThePrimeagen/refactoring.nvim",
+    event = "BufEnter",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function(_, opts)
+      require("refactoring").setup(opts)
+    end,
+  },
+  {
+    'echasnovski/mini.hipatterns',
+    version = '*',
+
+    opts = function()
+      local hi = require 'mini.hipatterns'
+      return {
+        tailwind = {
+          enabled = true,
+          ft = { 'typescriptreact', 'javascriptreact', 'css', 'javascript', 'typescript', 'html', 'svelte' },
+          style = 'full',
+        },
+        highlighters = {
+          hex_color = hi.gen_highlighter.hex_color { priority = 2000 },
+          shorthand = {
+            pattern = '()#%x%x%x()%f[^%x%w]',
+            group = function(_, _, data)
+              ---@type string
+              local match = data.full_match
+              local r, g, b = match:sub(2, 2), match:sub(3, 3), match:sub(4, 4)
+              local hex_color = '#' .. r .. r .. g .. g .. b .. b
+
+              return hi.compute_hex_color_group(hex_color, 'bg')
+            end,
+            extmark_opts = { priority = 2000 },
+          },
+        },
+      }
+    end,
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "BufEnter",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  },
 }

@@ -1,16 +1,10 @@
 return {
   {
-    "tiagovla/tokyodark.nvim",
-    cond = false,
-    config = function(_)
-      require("plugins.theme.tokyodark")
-    end,
-  },
-  {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
+      ---@diagnostic disable-next-line: missing-fields
       require("tokyonight").setup({
         transparent = true,
         terminal_colors = true,
@@ -20,6 +14,7 @@ return {
         },
       })
       vim.cmd [[colorscheme tokyonight]]
+      require("plugins.theme.highlights")
     end
   }
 }

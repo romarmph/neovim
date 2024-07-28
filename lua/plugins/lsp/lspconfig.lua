@@ -14,6 +14,9 @@ return {
       local keymap = vim.keymap
       
       vim.api.nvim_create_autocmd("LspAttach", {
+        vim.diagnostic.config({
+          update_in_insert = true,
+        }),
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(event)
           local opts = { buffer = event.buf, silent = true }
@@ -26,6 +29,19 @@ return {
 
           opts.desc = "Open Code Actions"
           keymap.set({'n', 'v',},"<leader>ca", vim.lsp.buf.code_action, opts)
+
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          if client and client.server_capabilities.documentHighlightProvider then
+            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+              buffer = event.buf,
+              callback = vim.lsp.buf.document_highlight,
+            })
+
+            vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+              buffer = event.buf,
+              callback = vim.lsp.buf.clear_references,
+            })
+          end
         end
       })
 
