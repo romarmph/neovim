@@ -72,6 +72,50 @@ return {
     opts = {}
   },
   {
+    'echasnovski/mini.hipatterns',
+    version = '*',
+
+    opts = function()
+      local hi = require 'mini.hipatterns'
+      return {
+        tailwind = {
+          enabled = true,
+          ft = { 'typescriptreact', 'javascriptreact', 'css', 'javascript', 'typescript', 'html', 'svelte' },
+          style = 'full',
+        },
+        highlighters = {
+          hex_color = hi.gen_highlighter.hex_color { priority = 2000 },
+          shorthand = {
+            pattern = '()#%x%x%x()%f[^%x%w]',
+            group = function(_, _, data)
+              ---@type string
+              local match = data.full_match
+              local r, g, b = match:sub(2, 2), match:sub(3, 3), match:sub(4, 4)
+              local hex_color = '#' .. r .. r .. g .. g .. b .. b
+
+              return hi.compute_hex_color_group(hex_color, 'bg')
+            end,
+            extmark_opts = { priority = 2000 },
+          },
+        },
+      }
+    end,
+  },
+  {
+  "tiagovla/scope.nvim",
+    config = function()
+      require("scope").setup({})
+      require("telescope").load_extension("scope")
+      local keymap = vim.keymap
+
+      keymap.set("n", "<leader>tm", ":ScopeMoveBuf ", { desc = "Move buffer to tab" })
+      keymap.set("n", "<leader>ta", "<cmd>tabnew<CR>", { desc = "New Tab page" })
+      keymap.set("n", "]t", "<cmd>tabn<CR>", { desc = "Next tab" })
+      keymap.set("n", "[t", "<cmd>tabp<CR>", { desc = "Previous tab" })
+      keymap.set("n", "<leader>tC", "<cmd>tabc<CR>", { desc = "Close current tab" })
+    end,
+  }
+  {
     'akinsho/bufferline.nvim',
     event = 'BufEnter',
     config = function()
