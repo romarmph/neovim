@@ -11,6 +11,10 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
+          "tsserver",
+          "svelte",
+          "cssls",
+          "tailwindcss",
         }
       })
     end
@@ -19,13 +23,13 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   {
-			"folke/lazydev.nvim",
-			ft = "lua",
-			opts = {
-				library = {
-					"lazy.nvim",
-					{ path = "luvit-meta/library", words = { "vim%.uv" } },
-				},
-			},
-		},
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        "lazy.nvim",
+        { path = "luvit-meta/library", words = { "vim%.uv" } },
+      },
+    },
+  },
 }
