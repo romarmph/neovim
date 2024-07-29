@@ -109,13 +109,13 @@ ins_left {
 ins_right {
   function()
     local msg = 'No Active Lsp'
-    local clients = vim.lsp.get_clients({bufnr = 0})
+    local clients = vim.lsp.get_clients({ bufnr = 0 })
     if next(clients) == nil then
       return msg
     else
       for _, client in ipairs(clients) do
         local langID = client.get_language_id(0, vim.bo.filetype)
-        if client.name ~= 'GitHub Copilot' and langID ==  vim.bo.filetype then
+        if client.name ~= 'GitHub Copilot' and langID == vim.bo.filetype then
           return client.name
         end
       end

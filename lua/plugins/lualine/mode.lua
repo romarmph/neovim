@@ -70,4 +70,5 @@ function Mode.get_mode()
   end
   return map[mode_code]
 end
+
 return Mode

@@ -12,7 +12,7 @@ return {
           sidebars = 'transparent',
           floats = 'transparent',
         },
-         on_highlights = function(highlights, colors)
+        on_highlights = function(highlights, colors)
           highlights['@function'] = { fg = colors.blue }
           highlights['@function.builtin'] = { fg = colors.yellow }
           highlights['@variable.builtin'] = { fg = colors.fg_dark }

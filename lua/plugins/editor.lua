@@ -1,19 +1,19 @@
 return {
   {
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v3.x",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "DaikyXendo/nvim-material-icon",
-        "MunifTanjim/nui.nvim",
-        "3rd/image.nvim",
-      },
-      keys = {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "DaikyXendo/nvim-material-icon",
+      "MunifTanjim/nui.nvim",
+      "3rd/image.nvim",
+    },
+    keys = {
       { '<leader>e',     ':Neotree toggle float<CR>', silent = true, desc = 'Float File Explorer' },
       { '<leader><tab>', ':Neotree toggle right<CR>', silent = true, desc = 'Left File Explorer' },
     },
-      config = function()
-        require("neo-tree").setup {
+    config = function()
+      require("neo-tree").setup {
         popup_border_style = 'rounded',
         sort_case_insensitive = true,
         hide_root_node = true,
@@ -57,7 +57,7 @@ return {
           },
         },
       }
-      end
+    end
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -221,7 +221,7 @@ return {
       }
     end,
   },
-   {
+  {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = {
@@ -320,4 +320,114 @@ return {
       )
     end
   },
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    config = function()
+      local rainbow_delimiters = require 'rainbow-delimiters'
+
+      require('rainbow-delimiters.setup').setup {
+        strategy = {
+          [''] = rainbow_delimiters.strategy['global'],
+          html = rainbow_delimiters.strategy['local'],
+          svelte = rainbow_delimiters.strategy['local'],
+          react = rainbow_delimiters.strategy['local'],
+        },
+        query = {
+          [''] = 'rainbow-delimiters',
+          lua = 'rainbow-blocks',
+        },
+      }
+    end,
+  },
+  {
+    'folke/todo-comments.nvim',
+    event = 'BufReadPre',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = {
+      signs = true
+    }
+  },
+  {
+    'folke/trouble.nvim',
+    event = "BufReadPre",
+    branch = 'main',
+    keys = {
+      {
+        '<leader>xx',
+        '<cmd>Trouble diagnostics toggle<cr>',
+        desc = 'Trouble: Open Diagnostics',
+      },
+      {
+        '<leader>xX',
+        '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+        desc = 'Trouble: Open Buffer Diagnostics',
+      },
+      {
+        '<leader>xs',
+        '<cmd>Trouble symbols toggle focus=false<cr>',
+        desc = 'Trouble: Open Symbols',
+      },
+      {
+        '<leader>xl',
+        '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+        desc = 'Trouble: LSP Definitions / references / ... ',
+      },
+      {
+        '<leader>xL',
+        '<cmd>Trouble loclist toggle<cr>',
+        desc = 'Trouble: Location List',
+      },
+      {
+        '<leader>xQ',
+        '<cmd>Trouble qflist toggle<cr>',
+        desc = 'Trouble: Quickfix List ',
+      },
+    },
+    opts = {},
+  },
+  {
+    'goolord/alpha-nvim',
+    dependencies = {
+      'DaikyXendo/nvim-material-icon'
+    },
+    config = function()
+      local alpha = require 'alpha'
+      local dashboard = require 'alpha.themes.dashboard'
+
+      local logo = {
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮]],
+        [[│││├┤ │ │╰┐┌╯││││]],
+        [[╯╰╯╰─╯╰─╯ ╰╯ ┴┴ ┴]],
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+        [[]],
+      }
+      dashboard.section.header.val = logo
+      dashboard.section.header.opts.hl = '@variable'
+
+      dashboard.section.buttons.val = {
+        dashboard.button('e', '  File Explorer', ':Neotree<CR>'),
+        dashboard.button('f', '  Find File', ':Telescope find_files<CR>'),
+        dashboard.button('w', '󰩉  Find Word', ':Telescope live_grep<CR>'),
+        dashboard.button('q', '󰅗  Quit', ':qa<cr>'),
+      }
+
+      alpha.setup(dashboard.opts)
+
+      vim.cmd [[ autocmd FileType alpha setlocal nofoldenable ]]
+    end,
+  }
 }

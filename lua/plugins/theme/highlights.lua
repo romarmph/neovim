@@ -1,5 +1,5 @@
 local colors = require("plugins.theme.colors")
-local set_highlight = function (group, highlight)
+local set_highlight = function(group, highlight)
   vim.api.nvim_set_hl(0, group, highlight)
 end
 
@@ -45,5 +45,5 @@ set_multiple({
   'IlluminatedWordText',
 }, { bg = '#2c2c4d' })
 
-set_highlight('WinSeparator', { fg = colors.fg_dark})
+set_highlight('WinSeparator', { fg = colors.fg_dark })
 set_highlight('WhichKeyBorder', { fg = colors.fg_dark })
