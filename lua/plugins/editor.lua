@@ -71,4 +71,65 @@ return {
     main = "ibl",
     opts = {}
   },
+  {
+    'akinsho/bufferline.nvim',
+    event = 'BufEnter',
+    config = function()
+      require("plugins.editor.bufferline")
+    end,
+  },
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    dependences = {},
+    config = function()
+      require('which-key').setup({
+        preset = "modern",
+        plugins = {
+          presets = {
+            operators = false,
+            motions = false,
+            text_objects = true,
+          }
+        },
+        icons = {
+          rules = false,
+        }
+      })
+
+
+      require('which-key').add({
+        { "<leader>b",  group = " Buffer" },
+        { "<leader>b_", hidden = true },
+        { "<leader>c",  group = " Code" },
+        { "<leader>c_", hidden = true },
+        { "<leader>f",  group = " Format" },
+        { "<leader>f_", hidden = true },
+        { "<leader>l",  group = " LSP" },
+        { "<leader>l_", hidden = true },
+        { "<leader>r",  group = " Rename" },
+        { "<leader>r_", hidden = true },
+        { "<leader>s",  group = " Search" },
+        { "<leader>s_", hidden = true },
+        { "<leader>u",  group = " Dismissed Notifications" },
+        { "<leader>u_", hidden = true },
+        { "<leader>w",  group = " Workspace" },
+        { "<leader>w_", hidden = true },
+        { "<leader>x",  group = " Trouble" },
+        { "<leader>x_", hidden = true },
+      })
+    end,
+  },
+  {
+    "tiagovla/scope.nvim",
+    config = function()
+      require("scope").setup({})
+      require("telescope").load_extension("scope")
+      vim.keymap.set("n", "<leader>tm", ":ScopeMoveBuf ", { desc = "Move buffer to tab" })
+      vim.keymap.set("n", "<leader>ta", "<cmd>tabnew<CR>", { desc = "New Tab page" })
+      vim.keymap.set("n", "]t", "<cmd>tabn<CR>", { desc = "Next tab" })
+      vim.keymap.set("n", "[t", "<cmd>tabp<CR>", { desc = "Previous tab" })
+      vim.keymap.set("n", "<leader>tC", "<cmd>tabc<CR>", { desc = "Close current tab" })
+    end,
+  }
 }

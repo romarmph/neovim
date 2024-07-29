@@ -33,6 +33,7 @@ return {
   },
   {
     "andymass/vim-matchup",
+    event = "BufEnter",
     config = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end
@@ -50,8 +51,8 @@ return {
   },
   {
     'echasnovski/mini.hipatterns',
+    event = "BufEnter",
     version = '*',
-
     opts = function()
       local hi = require 'mini.hipatterns'
       return {
@@ -80,8 +81,8 @@ return {
   },
   {
     "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "BufEnter",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function()
       require("nvim-surround").setup({
         -- Configuration here, or leave empty to use defaults
