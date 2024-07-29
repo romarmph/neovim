@@ -22,7 +22,7 @@ return {
           local opts = { buffer = event.buf, silent = true }
 
           opts.desc = "Rename Symbol"
-          keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+          -- keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
 
           opts.desc = "Show Hover Docs"
           keymap.set('n', 'K', vim.lsp.buf.hover, opts)

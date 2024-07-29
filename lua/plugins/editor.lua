@@ -429,5 +429,26 @@ return {
 
       vim.cmd [[ autocmd FileType alpha setlocal nofoldenable ]]
     end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      timeout = 10000,
+    },
+  },
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("dressing").setup({
+        input = {
+          override = function(conf)
+            conf.col = -1
+            conf.row = 0
+            return conf
+          end,
+        },
+      })
+    end
   }
 }

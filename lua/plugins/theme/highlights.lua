@@ -47,3 +47,9 @@ set_multiple({
 
 set_highlight('WinSeparator', { fg = colors.fg_dark })
 set_highlight('WhichKeyBorder', { fg = colors.fg_dark })
+
+set_highlight('GitSignsAdd', { fg = colors.green })
+set_highlight('GitSignsChange', { fg = colors.blue })
+set_highlight('GitSignsDelete', { fg = colors.red })
+set_highlight('GitSignsTopdelete', { fg = colors.magenta })
+set_highlight('GitSignsChangedelete', { fg = colors.orange })
