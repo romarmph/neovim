@@ -358,7 +358,7 @@ return {
         desc = 'Trouble: Open Diagnostics',
       },
       {
-        '<leader>xX',
+        '<leader>xb',
         '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
         desc = 'Trouble: Open Buffer Diagnostics',
       },
@@ -368,20 +368,25 @@ return {
         desc = 'Trouble: Open Symbols',
       },
       {
-        '<leader>xl',
+        '<leader>xL',
         '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
         desc = 'Trouble: LSP Definitions / references / ... ',
       },
       {
-        '<leader>xL',
+        '<leader>xl',
         '<cmd>Trouble loclist toggle<cr>',
         desc = 'Trouble: Location List',
       },
       {
-        '<leader>xQ',
+        '<leader>xq',
         '<cmd>Trouble qflist toggle<cr>',
         desc = 'Trouble: Quickfix List ',
       },
+      {
+        '<leader>xt',
+        '<cmd>TodoTrouble<CR>',
+        desc = 'Trouble: Todos'
+      }
     },
     opts = {},
   },
