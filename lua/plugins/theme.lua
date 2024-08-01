@@ -13,10 +13,6 @@ return {
           sidebars = 'transparent',
           floats = 'transparent',
         },
-        on_highlights = function(highlights, colors)
-          local vscolors = require("plugins.theme.vs-tokyonigt-colors")
-          highlights['@comment'] = { fg = vscolors.neutral_4 }
-        end
       })
       vim.cmd [[colorscheme tokyonight]]
       require("plugins.theme.highlights")
