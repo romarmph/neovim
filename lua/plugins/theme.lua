@@ -14,11 +14,8 @@ return {
           floats = 'transparent',
         },
         on_highlights = function(highlights, colors)
-          highlights['@function'] = { fg = colors.blue }
-          highlights['@function.builtin'] = { fg = colors.yellow }
-          highlights['@variable.builtin'] = { fg = colors.fg_dark }
-          highlights['@keyword.exception'] = { fg = colors.magenta2 }
-          highlights['@keyword.import'] = { fg = colors.cyan }
+          local vscolors = require("plugins.theme.vs-tokyonigt-colors")
+          highlights['@comment'] = { fg = vscolors.neutral_4 }
         end
       })
       vim.cmd [[colorscheme tokyonight]]
