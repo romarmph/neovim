@@ -11,7 +11,6 @@ return {
       local mason_lspconfig = require("mason-lspconfig")
       local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-      local keymap = vim.keymap
 
       vim.api.nvim_create_autocmd("LspAttach", {
         vim.diagnostic.config({
@@ -20,18 +19,33 @@ return {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(event)
           local opts = { buffer = event.buf, silent = true }
-
-          opts.desc = "Rename Symbol"
-          -- keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+          local keymap = vim.keymap
+          local telescope = require("telescope.builtin")
 
           opts.desc = "Show Hover Docs"
           keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 
           opts.desc = "Go to Definition"
-          keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+          keymap.set('n', 'gd', telescope.lsp_definitions , opts)
+
+          opts.desc = "Go to References"
+          keymap.set('n', 'gr', telescope.lsp_references , opts)
+
+          opts.desc = "Go to Declaration"
+          keymap.set('n', 'gD', vim.lsp.buf.declaration , opts)
+
+          opts.desc = "Go to Previous Diagnostic"
+          keymap.set('n', 'gD', vim.diagnostic.goto_prev , opts)
+
+          opts.desc = "Go to Next Diagnostic"
+          keymap.set('n', 'gD', vim.diagnostic.goto_next , opts)
+
+          opts.desc = "Add to loclist"
+          keymap.set('n', 'gD', vim.diagnostic.setloclist , opts)
 
           opts.desc = "Open Code Actions"
           keymap.set({ 'n', 'v', }, "<leader>ca", vim.lsp.buf.code_action, opts)
+
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.server_capabilities.documentHighlightProvider then

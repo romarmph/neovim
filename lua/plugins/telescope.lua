@@ -56,5 +56,15 @@ return {
     keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Search Resume' })
     keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = 'Search Recent Files' })
     keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Search buffers' })
+    keymap.set('n', '<leader>/', function ()
+      builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
+        previewer = false,
+      })
+    end, { desc = 'Search in current buffer'})
+    keymap.set('n', '<leader>s/', function ()
+      builtin.live_grep({
+        grep_open_files = true,
+      })
+    end, { desc = 'Search in Open files'})
   end
 }
