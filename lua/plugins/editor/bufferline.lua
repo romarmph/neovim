@@ -7,7 +7,7 @@ bufferline.setup({
       bufferline.style_preset.no_bold,
       bufferline.style_preset.no_italic,
     },
-    mode = 'tabs',
+    mode = 'buffers',
     themable = true,
     numbers = "none",
     indicator = {
