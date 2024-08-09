@@ -11,7 +11,7 @@ require('dap-vscode-js').setup({
   adapters = { 'pwa-node', 'pwa-chrome', 'node-terminal', 'pwa-extensionHost' },
 })
 
-for _, language in ipairs({ "typescript", "javascript", "svelte" }) do
+for _, language in ipairs(languages) do
   require("dap").configurations[language] = {
     {
       type = "pwa-node",

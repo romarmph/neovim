@@ -17,5 +17,8 @@ return {
         attach_to_untracked = true,
       })
     end
+  },
+  {
+    'tpope/vim-fugitive',
   }
 }

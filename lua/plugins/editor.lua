@@ -114,7 +114,7 @@ return {
       keymap.set("n", "[t", "<cmd>tabp<CR>", { desc = "Previous tab" })
       keymap.set("n", "<leader>tC", "<cmd>tabc<CR>", { desc = "Close current tab" })
     end,
-  }
+  },
   {
     'akinsho/bufferline.nvim',
     event = 'BufEnter',
