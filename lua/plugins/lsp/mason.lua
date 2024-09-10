@@ -11,7 +11,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
-          "tsserver",
+          "ts_ls",
           "svelte",
           "cssls",
           "tailwindcss",
@@ -21,7 +21,7 @@ return {
   },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    config = function ()
+    config = function()
       require("mason-tool-installer").setup({
         ensure_installed = {
           "eslint-lsp",
